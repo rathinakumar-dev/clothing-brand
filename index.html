@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gaudana Clothing Brand</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Custom CSS  -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- Favicon -->
+    <link rel="icon" href="./assets/images/logos/logo(3).png" />
+    <!-- Daisy Ui  -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <!-- Flowbite Link  -->
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.0/dist/flowbite.min.css" rel="stylesheet" />
+</head>
+
+<body class="antialiased bg-neutral-50 text-neutral-900">
+    <!-- Announcement bar -->
+    <div class="hidden md:flex justify-center bg-black text-white text-center py-2 px-6 text-sm tracking-wide">
+        <div class="flex justify-center items-center gap-3 w-full max-w-6xl relative">
+            <span class="uppercase">Free shipping on all orders above ₹5000.</span>
+            <button class="absolute right-0 flex h-6 w-6 items-center justify-center rounded-full hover:bg-white/50">
+                <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 w-full bg-white shadow-2xl">
+        <div class="container mx-auto flex h-20 items-center justify-between px-4 md:px-8">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center relative top-5 sm:top-0 md:top-5">
+                <img src="./assets/images/logos/logo(5).png" alt="Logo"
+                    class="h-30 w-auto sm:w-20 md:w-auto object-contain" />
+            </a>
+
+            <!-- Desktop nav -->
+            <nav class="hidden md:flex gap-6 font-semibold text-sm">
+                <a href="#" class="px-1 py-2 border-b-2 border-b-transparent hover:border-b-black/50">Home</a>
+                <a href="#" class="px-1 py-2 border-b-2 border-b-transparent hover:border-b-black/50">About</a>
+                <a href="#" class="px-1 py-2 border-b-2 border-b-transparent hover:border-b-black/50">Collection</a>
+                <a href="#" class="px-1 py-2 border-b-2 border-b-transparent hover:border-b-black/50">Shirts</a>
+                <a href="#" class="px-1 py-2 border-b-2 border-b-transparent hover:border-b-black/50">Jeans</a>
+                <a href="#" class="px-1 py-2 border-b-2 border-b-transparent hover:border-b-black/50">Cotton</a>
+                <a href="#" class="px-1 py-2 border-b-2 border-b-transparent hover:border-b-black/50">Formal</a>
+                <a href="#" class="px-1 py-2 border-b-2 border-b-transparent hover:border-b-black/50">Bulk Order</a>
+            </nav>
+
+            <!-- Right Buttons -->
+            <div class="flex items-center gap-4">
+                <a href="tel:+91XXXXXX"
+                    class="hidden md:flex items-center p-2 rounded-full hover:bg-[var(--primary)] transition group">
+                    <i data-lucide="phone" class="w-5 h-5 text-black group-hover:text-white"></i>
+                </a>
+
+                <button class="relative flex items-center p-2 rounded-full hover:bg-[var(--primary)] transition group">
+                    <i data-lucide="shopping-cart" class="w-5 h-5 text-black group-hover:text-white"></i>
+                    <span
+                        class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full px-1.5 py-0.5">2</span>
+                </button>
+
+                <a href="#"
+                    class="hidden md:flex items-center bg-black text-white px-4 py-2 text-lg font-semibold hover:bg-neutral-600 transition">
+                    Sign In
+                </a>
+
+                <!-- Mobile -->
+                <button id="menu-btn" class="flex md:hidden p-2 rounded-md hover:bg-black/10">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile menu (overlay) -->
+    <div id="mobile-menu" class="fixed inset-0 z-60 hidden bg-black/30 backdrop-blur-sm">
+        <div class="relative w-[90vw] max-w-sm mx-auto mt-8 rounded-2xl bg-white shadow-2xl flex flex-col">
+            <!-- Top Row: Brand Logo + Close Button -->
+            <div class="flex justify-end items-center border-b px-6 py-2">
+                <button id="close-menu" class="rounded-full bg-gray-200 p-2 hover:bg-neutral-200">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <!-- Nav Links -->
+            <nav class="flex flex-col gap-4 px-6 py-4 font-semibold text-lg">
+                <a href="#" class="hover:text-black/70 bg-gray-200 px-4 py-2 rounded-2xl">Home</a>
+                <a href="#" class="hover:text-black/70 bg-gray-200 px-4 py-2 rounded-2xl">About</a>
+                <a href="#" class="hover:text-black/70 bg-gray-200 px-4 py-2 rounded-2xl">Collection</a>
+                <a href="#" class="hover:text-black/70 bg-gray-200 px-4 py-2 rounded-2xl">Shirts</a>
+                <a href="#" class="hover:text-black/70 bg-gray-200 px-4 py-2 rounded-2xl">Jeans</a>
+                <a href="#" class="hover:text-black/70 bg-gray-200 px-4 py-2 rounded-2xl">Cotton</a>
+                <a href="#" class="hover:text-black/70 bg-gray-200 px-4 py-2 rounded-2xl">Formal</a>
+                <a href="#" class="hover:text-black/70 bg-gray-200 px-4 py-2 rounded-2xl">Bulk Order</a>
+            </nav>
+            <!-- CTA -->
+            <div class="flex justify-evenly items-center border-t px-4 py-4 gap-6">
+                <a href="tel:+91XXXXXX" class="p-3 rounded-full bg-neutral-100 hover:bg-black/10 transition"
+                    title="Call Us">
+                    <i data-lucide="phone" class="w-6 h-6"></i>
+                </a>
+                <button class="relative p-3 rounded-full bg-neutral-100 hover:bg-black/10 transition" title="Cart">
+                    <i data-lucide="shopping-cart" class="w-6 h-6"></i>
+                    <span
+                        class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full px-1.5 py-0.5">2</span>
+                </button>
+                <a href="#"
+                    class="px-6 py-2.5 rounded-full bg-black text-white hover:bg-neutral-900 transition font-semibold">Sign
+                    In</a>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="default-carousel" class="relative w-full" data-carousel="slide">
+            <!-- Carousel wrapper -->
+            <div class="relative h-[40vh] sm:h-[52vh] md:h-[80vh] overflow-hidden rounded-base">
+
+                <!-- Slide 1 -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <img src="/assets/images/products/shirts/blue/blue(1).jpg" class="w-full h-full object-cover"
+                        alt="carousel images" />
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <img src="/assets/images/products/shirts/mixed/mixed(14).jpg" class="w-full h-full object-cover"
+                        alt="carousel images" />
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <img src="/assets/images/products/pants/jean/jeans(7).jpg" class="w-full h-full object-cover"
+                        alt="carousel images" />
+                </div>
+
+                <!-- Slide 4 -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <img src="/assets/images/products/pants/cotton/cotton(4).jpg" class="w-full h-full object-cover"
+                        alt="carousel images" />
+                </div>
+
+                <!-- Slide 5 -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <img src="/assets/images/products/shirts/meron/meroun(5).jpg" class="w-full h-full object-cover"
+                        alt="carousel images" />
+                </div>
+            </div>
+
+            <!-- Indicators -->
+            <div class="absolute z-30 flex -translate-x-1/2 bottom-4 left-1/2 space-x-3">
+                <button type="button" class="w-3 h-3 bg-gray-100" data-carousel-slide-to="0"></button>
+                <button type="button" class="w-3 h-3 bg-gray-100" data-carousel-slide-to="1"></button>
+                <button type="button" class="w-3 h-3 bg-gray-100" data-carousel-slide-to="2"></button>
+                <button type="button" class="w-3 h-3 bg-gray-100" data-carousel-slide-to="3"></button>
+                <button type="button" class="w-3 h-3 bg-gray-100" data-carousel-slide-to="4"></button>
+            </div>
+
+            <!-- Prev Button -->
+            <button type="button" class="absolute left-0 top-0 z-30 flex items-center justify-center h-full px-4 group"
+                data-carousel-prev>
+                <span
+                    class="inline-flex items-center justify-center w-10 h-10 rounded-base bg-black/40 group-hover:bg-black/60">
+                    <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m15 19-7-7 7-7" />
+                    </svg>
+                </span>
+            </button>
+
+            <!-- Next Button -->
+            <button type="button" class="absolute right-0 top-0 z-30 flex items-center justify-center h-full px-4 group"
+                data-carousel-next>
+                <span
+                    class="inline-flex items-center justify-center w-10 h-10 rounded-base bg-black/40 group-hover:bg-black/60">
+                    <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m9 5 7 7-7 7" />
+                    </svg>
+                </span>
+            </button>
+        </section>
+
+        <!-- Feature Section -->
+        <section class="container mx-auto my-10">
+            <div class="flex gap-8 justify-center p-6 md:py-20 items-center">
+                <div class="hover:bg-neutral-200">
+                    <a href="#"
+                        class="flex flex-col justify-center text-center gap-2 text-sm md:text-2xl font-semibold">
+                        <img src="/assets/images/feature/t-shirt-01.avif" alt="" />
+                        T-Shirts
+                    </a>
+                </div>
+                <div class="hover:bg-neutral-200">
+                    <a href="#"
+                        class="flex flex-col justify-center text-center gap-2 text-sm md:text-2xl font-semibold">
+                        <img src="/assets/images/feature/shirt-01.avif" alt="" />
+                        Shirts
+                    </a>
+                </div>
+                <div class="hover:bg-neutral-200">
+                    <a href="#"
+                        class="flex flex-col justify-center text-center gap-0 text-sm md:text-2xl font-semibold">
+                        <img src="/assets/images/feature/pants.svg" alt="" class="w-50" />
+                        Pants
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="smart-tech-collection" class="pb-10">
+            <div class="container mx-auto px-4 md:px-8">
+                <div class="flex flex-wrap items-end justify-between gap-4 mb-6">
+                    <div>
+                        <p class="text-sm uppercase tracking-[0.25em] text-neutral-600">365 Days Shirt</p>
+                        <h2 class="text-2xl md:text-4xl font-semibold tracking-tight">Colours for every weekday</h2>
+                    </div>
+                    <button class="btn btn-ghost btn-sm rounded-none border border-neutral-500 text-xs md:text-sm">
+                        View size guide
+                    </button>
+                </div>
+
+                <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 py-6">
+
+                    <article
+                        class="product-card group rounded-2xl bg-neutral-50 border border-neutral-400 overflow-hidden flex flex-col relative focus:outline-none"
+                        tabindex="0" aria-labelledby="p1-title" aria-describedby="p1-desc">
+                        <!-- image / gallery -->
+                        <div class="relative aspect-[3/4] bg-slate-100 hover-gallery" aria-hidden="false">
+                            <img src="/assets/images/products/shirts/blue/blue(1).jpg"
+                                alt="Smart Tech Polo Ice Blue — front" data-index="0" data-visible="true">
+                            <!-- Gallery images: put your sources here (4 images example) -->
+                            <img src="/assets/images/products/shirts/blue/blue(1).jpg"
+                                alt="Smart Tech Polo Ice Blue — front" data-index="0" data-visible="true">
+                            <img src="/assets/images/products/shirts/blue/blue(2).jpg"
+                                alt="Smart Tech Polo Ice Blue — back" data-index="1">
+                            <img src="/assets/images/products/shirts/blue/blue(3).jpg"
+                                alt="Smart Tech Polo Ice Blue — detail" data-index="2">
+                            <img src="/assets/images/products/shirts/blue/blue(4).jpg"
+                                alt="Smart Tech Polo Ice Blue — fabric closeup" data-index="3">
+                        </div>
+
+                        <!-- body -->
+                        <div class="card-body flex-1 flex flex-col justify-between">
+                            <div>
+                                <h3 id="p1-title" class="text-md font-medium flex items-center justify-between">
+                                    <span>Turquoise Blue</span>
+                                    <span class="text-lg font-semibold">₹1999</span>
+                                </h3>
+
+                                <p id="p1-desc" class="text-sm text-neutral-600 mt-2">High-quality classic cap hat with
+                                    stitch logo. Moisture-wicking & quick-dry fabric.</p>
+
+                                <!-- rating + sizes -->
+                                <div class="mt-3 flex items-center justify-between gap-3">
+                                    <div class="flex items-center gap-1" aria-hidden="true">
+                                        <span class="text-sm flex items-center gap-2">
+                                            <i data-lucide="star" class="text-yellow-500"
+                                                style="fill: currentColor; stroke: none;"></i>
+                                            <span class="font-bold">4.5</span>
+                                        </span>
+                                        <span class="text-xs font-bold text-neutral-600 ml-1"> (124)</span>
+                                    </div>
+
+                                    <div class="flex items-center gap-1">
+                                        <span class="text-xs text-neutral-500 font-bold">Sizes</span>
+                                        <div class="ml-2 flex gap-1">
+                                            <button class="btn btn-xs btn-outline rounded-sm"
+                                                aria-label="Size S">S</button>
+                                            <button class="btn btn-xs btn-outline rounded-sm"
+                                                aria-label="Size M">M</button>
+                                            <button class="btn btn-xs btn-outline rounded-sm"
+                                                aria-label="Size L">L</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- action row -->
+                            <div class="flex justify-center gap-4 mt-2">
+                                <button class="btn btn-sm btn-ghost bg-black text-white  md:w-auto"
+                                    aria-label="Add to cart">Add to
+                                    cart</button>
+                                <button class="btn btn-ghost btn-sm border border-gray-500"
+                                    aria-label="Quick view">Quick view</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article
+                        class="product-card group rounded-2xl bg-neutral-50 border border-neutral-400 overflow-hidden flex flex-col relative focus:outline-none"
+                        tabindex="0" aria-labelledby="p1-title" aria-describedby="p1-desc">
+                        <!-- image / gallery -->
+                        <div class="relative aspect-[3/4] bg-slate-100 hover-gallery" aria-hidden="false">
+                            <img src="/assets/images/products/shirts/lime-green/lime-green(1).jpg"
+                                alt="Smart Tech Polo Ice Blue — front" data-index="0" data-visible="true">
+                            <!-- Gallery images: put your sources here (4 images example) -->
+                            <img src="/assets/images/products/shirts/lime-green/lime-green(1).jpg"
+                                alt="Smart Tech Polo Ice Blue — front" data-index="0" data-visible="true">
+                            <img src="/assets/images/products/shirts/lime-green/lime-green(2).jpg"
+                                alt="Smart Tech Polo Ice Blue — back" data-index="1">
+                            <img src="/assets/images/products/shirts/lime-green/lime-green(3).jpg"
+                                alt="Smart Tech Polo Ice Blue — detail" data-index="2">
+                            <img src="/assets/images/products/shirts/lime-green/lime-green(4).jpg"
+                                alt="Smart Tech Polo Ice Blue — fabric closeup" data-index="3">
+                        </div>
+
+                        <!-- body -->
+                        <div class="card-body flex-1 flex flex-col justify-between">
+                            <div>
+                                <h3 id="p1-title" class="text-md font-medium flex items-center justify-between">
+                                    <span>Turquoise Blue</span>
+                                    <span class="text-lg font-semibold">₹1999</span>
+                                </h3>
+
+                                <p id="p1-desc" class="text-sm text-neutral-600 mt-2">High-quality classic cap hat with
+                                    stitch logo. Moisture-wicking & quick-dry fabric.</p>
+
+                                <!-- rating + sizes -->
+                                <div class="mt-3 flex items-center justify-between gap-3">
+                                    <div class="flex items-center gap-1" aria-hidden="true">
+                                        <span class="text-sm flex items-center gap-2">
+                                            <i data-lucide="star" class="text-yellow-500"
+                                                style="fill: currentColor; stroke: none;"></i>
+                                            <span class="font-bold">4.5</span>
+                                        </span>
+                                        <span class="text-xs font-bold text-neutral-600 ml-1"> (124)</span>
+                                    </div>
+
+                                    <div class="flex items-center gap-1">
+                                        <span class="text-xs text-neutral-500 font-bold">Sizes</span>
+                                        <div class="ml-2 flex gap-1">
+                                            <button class="btn btn-xs btn-outline rounded-sm"
+                                                aria-label="Size S">S</button>
+                                            <button class="btn btn-xs btn-outline rounded-sm"
+                                                aria-label="Size M">M</button>
+                                            <button class="btn btn-xs btn-outline rounded-sm"
+                                                aria-label="Size L">L</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- action row -->
+                            <div class="flex justify-center gap-4 mt-2">
+                                <button class="btn btn-sm btn-ghost bg-black text-white md:w-auto"
+                                    aria-label="Add to cart">Add to
+                                    cart</button>
+                                <button class="btn btn-ghost btn-sm border border-gray-500"
+                                    aria-label="Quick view">Quick view</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article
+                        class="product-card group rounded-2xl bg-neutral-50 border border-neutral-400 overflow-hidden flex flex-col relative focus:outline-none"
+                        tabindex="0" aria-labelledby="p1-title" aria-describedby="p1-desc">
+                        <!-- image / gallery -->
+                        <div class="relative aspect-[3/4] bg-slate-100 hover-gallery" aria-hidden="false">
+                            <img src="/assets/images/products/shirts/meron/meroun(2).jpg"
+                                alt="Smart Tech Polo Ice Blue — front" data-index="0" data-visible="true">
+                            <img src="/assets/images/products/shirts/meron/meroun(2).jpg"
+                                alt="Smart Tech Polo Ice Blue — front" data-index="0" data-visible="true">
+                            <img src="/assets/images/products/shirts/meron/meroun(3).jpg"
+                                alt="Smart Tech Polo Ice Blue — back" data-index="1">
+                            <img src="/assets/images/products/shirts//meron/meroun(5).jpg"
+                                alt="Smart Tech Polo Ice Blue — detail" data-index="2">
+                            <img src="/assets/images/products/shirts/meron/meroun(1).jpg"
+                                alt="Smart Tech Polo Ice Blue — fabric closeup" data-index="3">
+                        </div>
+
+                        <!-- body -->
+                        <div class="card-body flex-1 flex flex-col justify-between">
+                            <div>
+                                <h3 id="p1-title" class="text-md font-medium flex items-center justify-between">
+                                    <span>Turquoise Blue</span>
+                                    <span class="text-lg font-semibold">₹1999</span>
+                                </h3>
+
+                                <p id="p1-desc" class="text-sm text-neutral-600 mt-2">High-quality classic cap hat with
+                                    stitch logo. Moisture-wicking & quick-dry fabric.</p>
+
+                                <!-- rating + sizes -->
+                                <div class="mt-3 flex items-center justify-between gap-3">
+                                    <div class="flex items-center gap-1" aria-hidden="true">
+                                        <span class="text-sm flex items-center gap-2">
+                                            <i data-lucide="star" class="text-yellow-500"
+                                                style="fill: currentColor; stroke: none;"></i>
+                                            <span class="font-bold">4.5</span>
+                                        </span>
+                                        <span class="text-xs font-bold text-neutral-600 ml-1"> (124)</span>
+                                    </div>
+
+                                    <div class="flex items-center gap-1">
+                                        <span class="text-xs text-neutral-500 font-bold">Sizes</span>
+                                        <div class="ml-2 flex gap-1">
+                                            <button class="btn btn-xs btn-outline rounded-sm"
+                                                aria-label="Size S">S</button>
+                                            <button class="btn btn-xs btn-outline rounded-sm"
+                                                aria-label="Size M">M</button>
+                                            <button class="btn btn-xs btn-outline rounded-sm"
+                                                aria-label="Size L">L</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- action row -->
+                            <div class="flex justify-center gap-4 mt-2">
+                                <button class="btn btn-sm btn-ghost bg-black text-white md:w-auto"
+                                    aria-label="Add to cart">Add to
+                                    cart</button>
+                                <button class="btn btn-ghost btn-sm border border-gray-500"
+                                    aria-label="Quick view">Quick view</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article
+                        class="product-card group rounded-2xl bg-neutral-50 border border-neutral-400 overflow-hidden flex flex-col relative focus:outline-none"
+                        tabindex="0" aria-labelledby="p1-title" aria-describedby="p1-desc">
+                        <!-- image / gallery -->
+                        <div class="relative aspect-[3/4] bg-slate-100 hover-gallery" aria-hidden="false">
+                            <img src="/assets/images/products/shirts/mixed/mixed(1).jpg"
+                                alt="Smart Tech Polo Ice Blue — front" data-index="0" data-visible="true">
+                            <img src="/assets/images/products/shirts/mixed/mixed(1).jpg"
+                                alt="Smart Tech Polo Ice Blue — front" data-index="0" data-visible="true">
+                            <img src="/assets/images/products/shirts/mixed/mixed(2).jpg"
+                                alt="Smart Tech Polo Ice Blue — back" data-index="1">
+                            <img src="/assets/images/products/shirts/mixed/mixed(4).png"
+                                alt="Smart Tech Polo Ice Blue — detail" data-index="2">
+                            <img src="/assets/images/products/shirts/mixed/mixed(20).jpg"
+                                alt="Smart Tech Polo Ice Blue — fabric closeup" data-index="3">
+                        </div>
+
+                        <!-- body -->
+                        <div class="card-body flex-1 flex flex-col justify-between">
+                            <div>
+                                <h3 id="p1-title" class="text-md font-medium flex items-center justify-between">
+                                    <span>Turquoise Blue</span>
+                                    <span class="text-lg font-semibold">₹1999</span>
+                                </h3>
+
+                                <p id="p1-desc" class="text-sm text-neutral-600 mt-2">High-quality classic cap hat with
+                                    stitch logo. Moisture-wicking & quick-dry fabric.</p>
+
+                                <!-- rating + sizes -->
+                                <div class="mt-3 flex items-center justify-between gap-3">
+                                    <div class="flex items-center gap-1" aria-hidden="true">
+                                        <span class="text-sm flex items-center gap-2">
+                                            <i data-lucide="star" class="text-yellow-500"
+                                                style="fill: currentColor; stroke: none;"></i>
+                                            <span class="font-bold">4.5</span>
+                                        </span>
+                                        <span class="text-xs font-bold text-neutral-600 ml-1"> (124)</span>
+                                    </div>
+
+                                    <div class="flex items-center gap-1">
+                                        <span class="text-xs text-neutral-500 font-bold">Sizes</span>
+                                        <div class="ml-2 flex gap-1">
+                                            <button class="btn btn-xs btn-outline rounded-sm"
+                                                aria-label="Size S">S</button>
+                                            <button class="btn btn-xs btn-outline rounded-sm"
+                                                aria-label="Size M">M</button>
+                                            <button class="btn btn-xs btn-outline rounded-sm"
+                                                aria-label="Size L">L</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- action row -->
+                            <div class="flex justify-center gap-4 mt-2">
+                                <button class="btn btn-sm btn-ghost bg-black text-white md:w-auto"
+                                    aria-label="Add to cart">Add to
+                                    cart</button>
+                                <button class="btn btn-ghost btn-sm border border-gray-500"
+                                    aria-label="Quick view">Quick view</button>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+
+                <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 py-6">
+
+                    <article
+                        class="product-card group rounded-2xl bg-neutral-50 border border-neutral-400 overflow-hidden flex flex-col relative focus:outline-none"
+                        tabindex="0" aria-labelledby="p1-title" aria-describedby="p1-desc">
+                        <!-- image / gallery -->
+                        <div class="relative aspect-[3/4] bg-slate-100 hover-gallery" aria-hidden="false">
+                            <img src="/assets/images/products/shirts/blue/blue(1).jpg"
+                                alt="Smart Tech Polo Ice Blue — front" data-index="0" data-visible="true">
+                            <!-- Gallery images: put your sources here (4 images example) -->
+                            <img src="/assets/images/products/shirts/blue/blue(1).jpg"
+                                alt="Smart Tech Polo Ice Blue — front" data-index="0" data-visible="true">
+                            <img src="/assets/images/products/shirts/blue/blue(2).jpg"
+                                alt="Smart Tech Polo Ice Blue — back" data-index="1">
+                            <img src="/assets/images/products/shirts/blue/blue(3).jpg"
+                                alt="Smart Tech Polo Ice Blue — detail" data-index="2">
+                            <img src="/assets/images/products/shirts/blue/blue(4).jpg"
+                                alt="Smart Tech Polo Ice Blue — fabric closeup" data-index="3">
+                        </div>
+
+                        <!-- body -->
+                        <div class="card-body flex-1 flex flex-col justify-between">
+                            <div>
+                                <h3 id="p1-title" class="text-md font-medium flex items-center justify-between">
+                                    <span>Turquoise Blue</span>
+                                    <span class="text-lg font-semibold">₹1999</span>
+                                </h3>
+
+                                <p id="p1-desc" class="text-sm text-neutral-600 mt-2">High-quality classic cap hat with
+                                    stitch logo. Moisture-wicking & quick-dry fabric.</p>
+
+                                <!-- rating + sizes -->
+                                <div class="mt-3 flex items-center justify-between gap-3">
+                                    <div class="flex items-center gap-1" aria-hidden="true">
+                                        <span class="text-sm flex items-center gap-2">
+                                            <i data-lucide="star" class="text-yellow-500"
+                                                style="fill: currentColor; stroke: none;"></i>
+                                            <span class="font-bold">4.5</span>
+                                        </span>
+                                        <span class="text-xs font-bold text-neutral-600 ml-1"> (124)</span>
+                                    </div>
+
+                                    <div class="flex items-center gap-1">
+                                        <span class="text-xs text-neutral-500 font-bold">Sizes</span>
+                                        <div class="ml-2 flex gap-1">
+                                            <button class="btn btn-xs btn-outline rounded-sm"
+                                                aria-label="Size S">S</button>
+                                            <button class="btn btn-xs btn-outline rounded-sm"
+                                                aria-label="Size M">M</button>
+                                            <button class="btn btn-xs btn-outline rounded-sm"
+                                                aria-label="Size L">L</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- action row -->
+                            <div class="flex justify-center gap-4 mt-2">
+                                <button class="btn btn-sm btn-ghost bg-black text-white  md:w-auto"
+                                    aria-label="Add to cart">Add to
+                                    cart</button>
+                                <button class="btn btn-ghost btn-sm border border-gray-500"
+                                    aria-label="Quick view">Quick view</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article
+                        class="product-card group rounded-2xl bg-neutral-50 border border-neutral-400 overflow-hidden flex flex-col relative focus:outline-none"
+                        tabindex="0" aria-labelledby="p1-title" aria-describedby="p1-desc">
+                        <!-- image / gallery -->
+                        <div class="relative aspect-[3/4] bg-slate-100 hover-gallery" aria-hidden="false">
+                            <img src="/assets/images/products/shirts/lime-green/lime-green(1).jpg"
+                                alt="Smart Tech Polo Ice Blue — front" data-index="0" data-visible="true">
+                            <!-- Gallery images: put your sources here (4 images example) -->
+                            <img src="/assets/images/products/shirts/lime-green/lime-green(1).jpg"
+                                alt="Smart Tech Polo Ice Blue — front" data-index="0" data-visible="true">
+                            <img src="/assets/images/products/shirts/lime-green/lime-green(2).jpg"
+                                alt="Smart Tech Polo Ice Blue — back" data-index="1">
+                            <img src="/assets/images/products/shirts/lime-green/lime-green(3).jpg"
+                                alt="Smart Tech Polo Ice Blue — detail" data-index="2">
+                            <img src="/assets/images/products/shirts/lime-green/lime-green(4).jpg"
+                                alt="Smart Tech Polo Ice Blue — fabric closeup" data-index="3">
+                        </div>
+
+                        <!-- body -->
+                        <div class="card-body flex-1 flex flex-col justify-between">
+                            <div>
+                                <h3 id="p1-title" class="text-md font-medium flex items-center justify-between">
+                                    <span>Turquoise Blue</span>
+                                    <span class="text-lg font-semibold">₹1999</span>
+                                </h3>
+
+                                <p id="p1-desc" class="text-sm text-neutral-600 mt-2">High-quality classic cap hat with
+                                    stitch logo. Moisture-wicking & quick-dry fabric.</p>
+
+                                <!-- rating + sizes -->
+                                <div class="mt-3 flex items-center justify-between gap-3">
+                                    <div class="flex items-center gap-1" aria-hidden="true">
+                                        <span class="text-sm flex items-center gap-2">
+                                            <i data-lucide="star" class="text-yellow-500"
+                                                style="fill: currentColor; stroke: none;"></i>
+                                            <span class="font-bold">4.5</span>
+                                        </span>
+                                        <span class="text-xs font-bold text-neutral-600 ml-1"> (124)</span>
+                                    </div>
+
+                                    <div class="flex items-center gap-1">
+                                        <span class="text-xs text-neutral-500 font-bold">Sizes</span>
+                                        <div class="ml-2 flex gap-1">
+                                            <button class="btn btn-xs btn-outline rounded-sm"
+                                                aria-label="Size S">S</button>
+                                            <button class="btn btn-xs btn-outline rounded-sm"
+                                                aria-label="Size M">M</button>
+                                            <button class="btn btn-xs btn-outline rounded-sm"
+                                                aria-label="Size L">L</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- action row -->
+                            <div class="flex justify-center gap-4 mt-2">
+                                <button class="btn btn-sm btn-ghost bg-black text-white md:w-auto"
+                                    aria-label="Add to cart">Add to
+                                    cart</button>
+                                <button class="btn btn-ghost btn-sm border border-gray-500"
+                                    aria-label="Quick view">Quick view</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article
+                        class="product-card group rounded-2xl bg-neutral-50 border border-neutral-400 overflow-hidden flex flex-col relative focus:outline-none"
+                        tabindex="0" aria-labelledby="p1-title" aria-describedby="p1-desc">
+                        <!-- image / gallery -->
+                        <div class="relative aspect-[3/4] bg-slate-100 hover-gallery" aria-hidden="false">
+                            <img src="/assets/images/products/shirts/meron/meroun(2).jpg"
+                                alt="Smart Tech Polo Ice Blue — front" data-index="0" data-visible="true">
+                            <img src="/assets/images/products/shirts/meron/meroun(2).jpg"
+                                alt="Smart Tech Polo Ice Blue — front" data-index="0" data-visible="true">
+                            <img src="/assets/images/products/shirts/meron/meroun(3).jpg"
+                                alt="Smart Tech Polo Ice Blue — back" data-index="1">
+                            <img src="/assets/images/products/shirts//meron/meroun(5).jpg"
+                                alt="Smart Tech Polo Ice Blue — detail" data-index="2">
+                            <img src="/assets/images/products/shirts/meron/meroun(1).jpg"
+                                alt="Smart Tech Polo Ice Blue — fabric closeup" data-index="3">
+                        </div>
+
+                        <!-- body -->
+                        <div class="card-body flex-1 flex flex-col justify-between">
+                            <div>
+                                <h3 id="p1-title" class="text-md font-medium flex items-center justify-between">
+                                    <span>Turquoise Blue</span>
+                                    <span class="text-lg font-semibold">₹1999</span>
+                                </h3>
+
+                                <p id="p1-desc" class="text-sm text-neutral-600 mt-2">High-quality classic cap hat with
+                                    stitch logo. Moisture-wicking & quick-dry fabric.</p>
+
+                                <!-- rating + sizes -->
+                                <div class="mt-3 flex items-center justify-between gap-3">
+                                    <div class="flex items-center gap-1" aria-hidden="true">
+                                        <span class="text-sm flex items-center gap-2">
+                                            <i data-lucide="star" class="text-yellow-500"
+                                                style="fill: currentColor; stroke: none;"></i>
+                                            <span class="font-bold">4.5</span>
+                                        </span>
+                                        <span class="text-xs font-bold text-neutral-600 ml-1"> (124)</span>
+                                    </div>
+
+                                    <div class="flex items-center gap-1">
+                                        <span class="text-xs text-neutral-500 font-bold">Sizes</span>
+                                        <div class="ml-2 flex gap-1">
+                                            <button class="btn btn-xs btn-outline rounded-sm"
+                                                aria-label="Size S">S</button>
+                                            <button class="btn btn-xs btn-outline rounded-sm"
+                                                aria-label="Size M">M</button>
+                                            <button class="btn btn-xs btn-outline rounded-sm"
+                                                aria-label="Size L">L</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- action row -->
+                            <div class="flex justify-center gap-4 mt-2">
+                                <button class="btn btn-sm btn-ghost bg-black text-white md:w-auto"
+                                    aria-label="Add to cart">Add to
+                                    cart</button>
+                                <button class="btn btn-ghost btn-sm border border-gray-500"
+                                    aria-label="Quick view">Quick view</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article
+                        class="product-card group rounded-2xl bg-neutral-50 border border-neutral-400 overflow-hidden flex flex-col relative focus:outline-none"
+                        tabindex="0" aria-labelledby="p1-title" aria-describedby="p1-desc">
+                        <!-- image / gallery -->
+                        <div class="relative aspect-[3/4] bg-slate-100 hover-gallery" aria-hidden="false">
+                            <img src="/assets/images/products/shirts/mixed/mixed(1).jpg"
+                                alt="Smart Tech Polo Ice Blue — front" data-index="0" data-visible="true">
+                            <img src="/assets/images/products/shirts/mixed/mixed(1).jpg"
+                                alt="Smart Tech Polo Ice Blue — front" data-index="0" data-visible="true">
+                            <img src="/assets/images/products/shirts/mixed/mixed(2).jpg"
+                                alt="Smart Tech Polo Ice Blue — back" data-index="1">
+                            <img src="/assets/images/products/shirts/mixed/mixed(4).png"
+                                alt="Smart Tech Polo Ice Blue — detail" data-index="2">
+                            <img src="/assets/images/products/shirts/mixed/mixed(20).jpg"
+                                alt="Smart Tech Polo Ice Blue — fabric closeup" data-index="3">
+                        </div>
+
+                        <!-- body -->
+                        <div class="card-body flex-1 flex flex-col justify-between">
+                            <div>
+                                <h3 id="p1-title" class="text-md font-medium flex items-center justify-between">
+                                    <span>Turquoise Blue</span>
+                                    <span class="text-lg font-semibold">₹1999</span>
+                                </h3>
+
+                                <p id="p1-desc" class="text-sm text-neutral-600 mt-2">High-quality classic cap hat with
+                                    stitch logo. Moisture-wicking & quick-dry fabric.</p>
+
+                                <!-- rating + sizes -->
+                                <div class="mt-3 flex items-center justify-between gap-3">
+                                    <div class="flex items-center gap-1" aria-hidden="true">
+                                        <span class="text-sm flex items-center gap-2">
+                                            <i data-lucide="star" class="text-yellow-500"
+                                                style="fill: currentColor; stroke: none;"></i>
+                                            <span class="font-bold">4.5</span>
+                                        </span>
+                                        <span class="text-xs font-bold text-neutral-600 ml-1"> (124)</span>
+                                    </div>
+
+                                    <div class="flex items-center gap-1">
+                                        <span class="text-xs text-neutral-500 font-bold">Sizes</span>
+                                        <div class="ml-2 flex gap-1">
+                                            <button class="btn btn-xs btn-outline rounded-sm"
+                                                aria-label="Size S">S</button>
+                                            <button class="btn btn-xs btn-outline rounded-sm"
+                                                aria-label="Size M">M</button>
+                                            <button class="btn btn-xs btn-outline rounded-sm"
+                                                aria-label="Size L">L</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- action row -->
+                            <div class="flex justify-center gap-4 mt-2">
+                                <button class="btn btn-sm btn-ghost bg-black text-white md:w-auto"
+                                    aria-label="Add to cart">Add to
+                                    cart</button>
+                                <button class="btn btn-ghost btn-sm border border-gray-500"
+                                    aria-label="Quick view">Quick view</button>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer sm:footer-horizontal bg-base-300 text-base-content p-10">
+        <nav>
+            <img src="/assets/images/logos/logo(7).svg" alt="">
+        </nav>
+        <nav>
+            <h6 class="footer-title">Services</h6>
+            <a class="link link-hover">Branding</a>
+            <a class="link link-hover">Design</a>
+            <a class="link link-hover">Marketing</a>
+            <a class="link link-hover">Advertisement</a>
+        </nav>
+        <nav>
+            <h6 class="footer-title">Company</h6>
+            <a class="link link-hover">About us</a>
+            <a class="link link-hover">Contact</a>
+            <a class="link link-hover">Jobs</a>
+            <a class="link link-hover">Press kit</a>
+        </nav>
+        <nav>
+            <h6 class="footer-title">QR Code</h6>
+            <img src="/assets/images/qr-code.png" alt="map" class="w-28">
+        </nav>
+        <nav>
+            <h6 class="footer-title">Social</h6>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d497511.2310575468!2d79.87899083916929!3d13.0479859472432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265ea4f7d3361%3A0x6e61a70b6863d433!2sChennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1763212403188!5m2!1sen!2sin"
+                width="300" height="110" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </nav>
+    </footer>
+
+    <!-- Lucide CDN  -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+    <!-- Flowbite CDN  -->
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.0/dist/flowbite.min.js"></script>
+</body>
+
+</html>
