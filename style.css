@@ -3,14 +3,12 @@
 
 :root {
   --font-lora: "Lora", serif;
-  --primary: #D5A96A;
+  --primary: #d5a96a;
 }
 
 body {
-  font-family: "Montserrat", sans-serif; 
+  font-family: "Montserrat", sans-serif;
 }
-/* 
-@media screen and (min-width: 778px) and (max-width: 900px) {
-  
-} */
-
+.font-serif {
+  font-family: "Lora", serif;
+}

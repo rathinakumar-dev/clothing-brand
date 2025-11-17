@@ -5,6 +5,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gaudana Clothing Brand</title>
+    <meta name="description"
+        content="Gaudana — men's clothing brand. Explore shirts, jeans, cotton pants, formal wear, and discover other top men’s clothing brand websites." />
+    <meta name="keywords" content="men's clothing, shirts, jeans, cotton pants, formal wear, brands" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Gaudana — Men's Clothing" />
+    <meta property="og:description"
+        content="Shop curated men's shirts, jeans, cotton and formal wear. Explore featured brands and style inspiration." />
+    <meta property="og:image" content="./assets/images/products/shirts/blue/blue(1).jpg" />
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <!-- Custom CSS  -->
@@ -23,31 +31,31 @@
         <div class="flex justify-center items-center gap-3 w-full max-w-6xl relative">
             <span class="uppercase">Free shipping on all orders above ₹5000.</span>
             <button class="absolute right-0 flex h-6 w-6 items-center justify-center rounded-full hover:bg-white/50">
-                <i data-lucide="x" class="w-4 h-4"></i>
+                <i data-lucide="x" class="w-4 h-4">x</i>
             </button>
 
         </div>
     </div>
 
     <!-- Header -->
-    <header class="sticky top-0 z-50 w-full bg-white shadow-2xl">
+    <header class="w-full bg-white">
         <div class="container mx-auto flex h-20 items-center justify-between px-4 md:px-8">
             <!-- Logo -->
-            <a href="index.html" class="flex items-center relative top-5 sm:top-0 md:top-5">
-                <img src="./assets/images/logos/logo(5).png" alt="Logo"
-                    class="h-30 w-auto sm:w-20 md:w-auto object-contain" />
+            <a href="index.html" class="flex items-center ">
+                <img src="./assets/images/logos/new-logo.png" alt="Logo"
+                    class="w-60 object-cover" />
             </a>
 
             <!-- Desktop nav -->
-            <nav class="hidden md:flex gap-6 font-semibold text-sm">
-                <a href="#" class="px-1 py-2 border-b-2 border-b-transparent hover:border-b-black/50">Home</a>
-                <a href="#" class="px-1 py-2 border-b-2 border-b-transparent hover:border-b-black/50">About</a>
-                <a href="#" class="px-1 py-2 border-b-2 border-b-transparent hover:border-b-black/50">Collection</a>
-                <a href="#" class="px-1 py-2 border-b-2 border-b-transparent hover:border-b-black/50">Shirts</a>
-                <a href="#" class="px-1 py-2 border-b-2 border-b-transparent hover:border-b-black/50">Jeans</a>
-                <a href="#" class="px-1 py-2 border-b-2 border-b-transparent hover:border-b-black/50">Cotton</a>
-                <a href="#" class="px-1 py-2 border-b-2 border-b-transparent hover:border-b-black/50">Formal</a>
-                <a href="#" class="px-1 py-2 border-b-2 border-b-transparent hover:border-b-black/50">Bulk Order</a>
+            <nav class=" hidden md:flex gap-6 font-semibold text-sm">
+                <a href="#" class="px-1 py-2 group-hover:text-white">Home</a>
+                <a href="#" class="px-1 py-2 group-hover:text-white">About</a>
+                <a href="#" class="px-1 py-2 group-hover:text-white">Collection</a>
+                <a href="#" class="px-1 py-2 group-hover:text-white">Shirts</a>
+                <a href="#" class="px-1 py-2 group-hover:text-white">Jeans</a>
+                <a href="#" class="px-1 py-2 group-hover:text-white">Cotton</a>
+                <a href="#" class="px-1 py-2 group-hover:text-white">Formal</a>
+                <a href="#" class="px-1 py-2 group-hover:text-white">Bulk Order</a>
             </nav>
 
             <!-- Right Buttons -->
@@ -185,35 +193,87 @@
             </button>
         </section>
 
-        <!-- Feature Section -->
-        <section class="container mx-auto my-10">
-            <div class="flex gap-8 justify-center p-6 md:py-20 items-center">
-                <div class="hover:bg-neutral-200">
-                    <a href="#"
-                        class="flex flex-col justify-center text-center gap-2 text-sm md:text-2xl font-semibold">
-                        <img src="./assets/images/feature/t-shirt-01.avif" alt="" />
-                        T-Shirts
-                    </a>
-                </div>
-                <div class="hover:bg-neutral-200">
-                    <a href="#"
-                        class="flex flex-col justify-center text-center gap-2 text-sm md:text-2xl font-semibold">
-                        <img src="./assets/images/feature/shirt-01.avif" alt="" />
-                        Shirts
-                    </a>
-                </div>
-                <div class="hover:bg-neutral-200">
-                    <a href="#"
-                        class="flex flex-col justify-center text-center gap-0 text-sm md:text-2xl font-semibold">
-                        <img src="./assets/images/feature/pants.svg" alt="" class="w-50" />
-                        Pants
-                    </a>
-                </div>
+        <!-- Shop By Category   -->
+        <section class="container mx-auto px-6 md:px-8 py-12">
+            <!-- Title -->
+            <div class="max-w-3xl mx-auto text-center mb-8">
+                <p class="text-sm uppercase tracking-widest text-neutral-500">Discover</p>
+                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-neutral-900">Shop by Category</h2>
+                <p class="mt-2 text-sm md:text-base text-neutral-600">Browse our hand-picked categories and find your
+                    next go-to outfit — curated for fit, comfort and style.</p>
+            </div>
+
+            <!-- Tiles -->
+            <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6 items-stretch">
+                <!-- Card: T-Shirts -->
+                <a href="#smart-tech-collection" aria-label="Browse T-Shirts"
+                    class="group block bg-white rounded-2xl border border-neutral-500 p-6  transform transition duration-300 ease-out focus:outline-none focus:ring-4 focus:ring-indigo-100">
+                    <div class="flex flex-col items-center text-center h-full">
+                        <div
+                            class="flex items-center justify-center h-28 w-28 rounded-full bg-gradient-to-br from-indigo-50 to-indigo-100 mb-4 shadow-sm">
+                            <img src="./assets/images/feature/t-shirt-01.avif" alt="T-Shirts" loading="lazy"
+                                class="max-h-20 object-contain">
+                        </div>
+
+                        <h3 class="text-lg md:text-xl font-semibold text-neutral-900">T-Shirts</h3>
+                        <p class="mt-1 text-xs md:text-sm text-neutral-500">Casual & everyday essentials — soft,
+                            breathable fabrics.</p>
+
+                        <div class="mt-auto pt-4 flex items-center gap-2">
+                            <span class="text-sm font-medium text-indigo-600">Shop T-Shirts</span>
+                            <!-- optional lucide icon -->
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-indigo-600"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card: Shirts -->
+                <a href="#smart-tech-collection" aria-label="Browse Shirts"
+                    class="group block bg-white rounded-2xl border border-neutral-500 p-6  transform transition duration-300 ease-out focus:outline-none focus:ring-4 focus:ring-sky-100">
+                    <div class="flex flex-col items-center text-center h-full">
+                        <div
+                            class="flex items-center justify-center h-28 w-28 rounded-full bg-gradient-to-br from-sky-50 to-sky-100 mb-4 shadow-sm">
+                            <img src="./assets/images/feature/shirt-01.avif" alt="Shirts" loading="lazy"
+                                class="max-h-20 object-contain">
+                        </div>
+
+                        <h3 class="text-lg md:text-xl font-semibold text-neutral-900">Shirts</h3>
+                        <p class="mt-1 text-xs md:text-sm text-neutral-500">Smart, tailored and versatile — perfect for
+                            work or weekends.</p>
+
+                        <div class="mt-auto pt-4 flex items-center gap-2">
+                            <span class="text-sm font-medium text-sky-600">Shop Shirts</span>
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-sky-600"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card: Pants -->
+                <a href="#Jeans" aria-label="Browse Pants"
+                    class="group block bg-white rounded-2xl border border-neutral-500 p-6  transform transition duration-300 ease-out focus:outline-none focus:ring-4 focus:ring-emerald-100">
+                    <div class="flex flex-col items-center text-center h-full">
+                        <div
+                            class="flex items-center justify-center h-28 w-28 rounded-full bg-gradient-to-br from-emerald-50 to-emerald-100 mb-4 shadow-sm">
+                            <img src="./assets/images/feature/pants.svg" alt="Pants" loading="lazy"
+                                class="max-h-20 object-contain">
+                        </div>
+
+                        <h3 class="text-lg md:text-xl font-semibold text-neutral-900">Pants</h3>
+                        <p class="mt-1 text-xs md:text-sm text-neutral-500">From slim jeans to relaxed chinos —
+                            comfortable fits for every occasion.</p>
+
+                        <div class="mt-auto pt-4 flex items-center gap-2">
+                            <span class="text-sm font-medium text-emerald-600">Shop Pants</span>
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-emerald-600"></i>
+                        </div>
+                    </div>
+                </a>
             </div>
         </section>
 
+        <!-- Shirts Collection -->
         <section id="smart-tech-collection" class="pb-10">
-            <div class="container mx-auto px-4 md:px-8">
+            <div class="container mx-auto px-6 md:px-8">
                 <div class="flex flex-wrap items-end justify-between gap-4 mb-6">
                     <div>
                         <p class="text-sm uppercase tracking-[0.25em] text-neutral-600">365 Days Shirt</p>
@@ -751,8 +811,841 @@
             </div>
         </section>
 
+        <!-- Jeans Collection -->
+        <section id="Jeans" class="pb-10 relative">
+            <div class="container mx-auto px-6 md:px-8">
+                <div class="flex flex-wrap items-end justify-between gap-4 mb-6">
+                    <div>
+                        <p class="text-sm uppercase tracking-[0.25em] text-neutral-600">
+                            Premium Denim
+                        </p>
+                        <h2 class="text-2xl md:text-4xl font-semibold tracking-tight">
+                            Perfect Fit Jeans
+                        </h2>
+                    </div>
+                    <button class="btn btn-ghost btn-sm rounded-none border border-neutral-500 text-xs md:text-sm">
+                        View More
+                    </button>
+                </div>
+
+                <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 py-6">
+                    <!-- Jean Card 1 -->
+                    <article
+                        class="product-card group rounded-2xl bg-neutral-50 border border-neutral-400 overflow-hidden flex flex-col relative focus:outline-none"
+                        tabindex="0" aria-labelledby="p2-title" aria-describedby="p2-desc">
+                        <div class="relative aspect-[3/4] bg-slate-100 hover-gallery" aria-hidden="false">
+                            <img src="./assets/images/products/pants/jean/jeans(1).jpg" alt="Classic Blue Jeans — front"
+                                data-index="0" data-visible="true" />
+                            <img src="./assets/images/products/pants/jean/jeans(1).jpg" alt="Classic Blue Jeans — front"
+                                data-index="0" data-visible="true" />
+                            <img src="./assets/images/products/pants/jean/jeans(2).jpg" alt="Classic Blue Jeans — back"
+                                data-index="1" />
+                            <img src="./assets/images/products/pants/jean/jeans(3).jpg"
+                                alt="Classic Blue Jeans — detail" data-index="2" />
+                            <img src="./assets/images/products/pants/jean/jeans(4).jpg" alt="Classic Blue Jeans — fit"
+                                data-index="3" />
+                        </div>
+                        <div class="card-body flex-1 flex flex-col justify-between">
+                            <div>
+                                <h3 id="p2-title" class="text-md font-medium flex items-center justify-between">
+                                    <span>Classic Blue Jeans</span>
+                                    <span class="text-lg font-semibold">₹2499</span>
+                                </h3>
+                                <p id="p2-desc" class="text-sm text-neutral-600 mt-2">
+                                    Premium denim jeans with perfect comfort fit. Durable and
+                                    stylish for everyday wear.
+                                </p>
+                                <div class="mt-3 flex items-center justify-between gap-3">
+                                    <div class="flex items-center gap-1" aria-hidden="true">
+                                        <span class="text-sm flex items-center gap-2">
+                                            <i data-lucide="star" class="text-yellow-500"
+                                                style="fill: currentColor; stroke: none"></i>
+                                            <span class="font-bold">4.7</span>
+                                        </span>
+                                        <span class="text-xs font-bold text-neutral-600 ml-1">
+                                            (89)</span>
+                                    </div>
+                                    <div class="flex items-center gap-1">
+                                        <span class="text-xs text-neutral-500 font-bold">Sizes</span>
+                                        <div class="ml-2 flex gap-1">
+                                            <button class="btn btn-xs btn-outline rounded-sm" aria-label="Size 30">
+                                                30
+                                            </button>
+                                            <button class="btn btn-xs btn-outline rounded-sm" aria-label="Size 32">
+                                                32
+                                            </button>
+                                            <button class="btn btn-xs btn-outline rounded-sm" aria-label="Size 34">
+                                                34
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex justify-center gap-4 mt-2">
+                                <button class="btn btn-sm btn-ghost bg-black text-white md:w-auto"
+                                    aria-label="Add to cart">
+                                    Add to cart
+                                </button>
+                                <button class="btn btn-ghost btn-sm border border-gray-500" aria-label="Quick view">
+                                    Quick view
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Jean Card 2 -->
+                    <article
+                        class="product-card group rounded-2xl bg-neutral-50 border border-neutral-400 overflow-hidden flex flex-col relative focus:outline-none"
+                        tabindex="0" aria-labelledby="p3-title" aria-describedby="p3-desc">
+                        <div class="relative aspect-[3/4] bg-slate-100 hover-gallery" aria-hidden="false">
+                            <img src="./assets/images/products/pants/jean/jeans(1).jpg" alt="Classic Blue Jeans — front"
+                                data-index="0" data-visible="true" />
+                            <img src="./assets/images/products/pants/jean/jeans(1).jpg" alt="Classic Blue Jeans — front"
+                                data-index="0" data-visible="true" />
+                            <img src="./assets/images/products/pants/jean/jeans(2).jpg" alt="Classic Blue Jeans — back"
+                                data-index="1" />
+                            <img src="./assets/images/products/pants/jean/jeans(3).jpg"
+                                alt="Classic Blue Jeans — detail" data-index="2" />
+                            <img src="./assets/images/products/pants/jean/jeans(4).jpg" alt="Classic Blue Jeans — fit"
+                                data-index="3" />
+                        </div>
+                        <div class="card-body flex-1 flex flex-col justify-between">
+                            <div>
+                                <h3 id="p3-title" class="text-md font-medium flex items-center justify-between">
+                                    <span>Slim Fit Black</span>
+                                    <span class="text-lg font-semibold">₹2799</span>
+                                </h3>
+                                <p id="p3-desc" class="text-sm text-neutral-600 mt-2">
+                                    Modern slim fit jeans in classic black. Perfect for casual
+                                    and semi-formal occasions.
+                                </p>
+                                <div class="mt-3 flex items-center justify-between gap-3">
+                                    <div class="flex items-center gap-1" aria-hidden="true">
+                                        <span class="text-sm flex items-center gap-2">
+                                            <i data-lucide="star" class="text-yellow-500"
+                                                style="fill: currentColor; stroke: none"></i>
+                                            <span class="font-bold">4.8</span>
+                                        </span>
+                                        <span class="text-xs font-bold text-neutral-600 ml-1">
+                                            (156)</span>
+                                    </div>
+                                    <div class="flex items-center gap-1">
+                                        <span class="text-xs text-neutral-500 font-bold">Sizes</span>
+                                        <div class="ml-2 flex gap-1">
+                                            <button class="btn btn-xs btn-outline rounded-sm" aria-label="Size 30">
+                                                30
+                                            </button>
+                                            <button class="btn btn-xs btn-outline rounded-sm" aria-label="Size 32">
+                                                32
+                                            </button>
+                                            <button class="btn btn-xs btn-outline rounded-sm" aria-label="Size 34">
+                                                34
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex justify-center gap-4 mt-2">
+                                <button class="btn btn-sm btn-ghost bg-black text-white md:w-auto"
+                                    aria-label="Add to cart">
+                                    Add to cart
+                                </button>
+                                <button class="btn btn-ghost btn-sm border border-gray-500" aria-label="Quick view">
+                                    Quick view
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Jean Card 3 -->
+                    <article
+                        class="product-card group rounded-2xl bg-neutral-50 border border-neutral-400 overflow-hidden flex flex-col relative focus:outline-none"
+                        tabindex="0" aria-labelledby="p4-title" aria-describedby="p4-desc">
+                        <div class="relative aspect-[3/4] bg-slate-100 hover-gallery" aria-hidden="false">
+                            <img src="./assets/images/products/pants/jean/jeans(1).jpg" alt="Classic Blue Jeans — front"
+                                data-index="0" data-visible="true" />
+                            <img src="./assets/images/products/pants/jean/jeans(1).jpg" alt="Classic Blue Jeans — front"
+                                data-index="0" data-visible="true" />
+                            <img src="./assets/images/products/pants/jean/jeans(2).jpg" alt="Classic Blue Jeans — back"
+                                data-index="1" />
+                            <img src="./assets/images/products/pants/jean/jeans(3).jpg"
+                                alt="Classic Blue Jeans — detail" data-index="2" />
+                            <img src="./assets/images/products/pants/jean/jeans(4).jpg" alt="Classic Blue Jeans — fit"
+                                data-index="3" />
+                        </div>
+                        <div class="card-body flex-1 flex flex-col justify-between">
+                            <div>
+                                <h3 id="p4-title" class="text-md font-medium flex items-center justify-between">
+                                    <span>Distressed Denim</span>
+                                    <span class="text-lg font-semibold">₹2299</span>
+                                </h3>
+                                <p id="p4-desc" class="text-sm text-neutral-600 mt-2">
+                                    Trendy distressed denim with ripped details. Great for
+                                    streetwear and casual vibes.
+                                </p>
+                                <div class="mt-3 flex items-center justify-between gap-3">
+                                    <div class="flex items-center gap-1" aria-hidden="true">
+                                        <span class="text-sm flex items-center gap-2">
+                                            <i data-lucide="star" class="text-yellow-500"
+                                                style="fill: currentColor; stroke: none"></i>
+                                            <span class="font-bold">4.6</span>
+                                        </span>
+                                        <span class="text-xs font-bold text-neutral-600 ml-1">
+                                            (72)</span>
+                                    </div>
+                                    <div class="flex items-center gap-1">
+                                        <span class="text-xs text-neutral-500 font-bold">Sizes</span>
+                                        <div class="ml-2 flex gap-1">
+                                            <button class="btn btn-xs btn-outline rounded-sm" aria-label="Size 30">
+                                                30
+                                            </button>
+                                            <button class="btn btn-xs btn-outline rounded-sm" aria-label="Size 32">
+                                                32
+                                            </button>
+                                            <button class="btn btn-xs btn-outline rounded-sm" aria-label="Size 34">
+                                                34
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex justify-center gap-4 mt-2">
+                                <button class="btn btn-sm btn-ghost bg-black text-white md:w-auto"
+                                    aria-label="Add to cart">
+                                    Add to cart
+                                </button>
+                                <button class="btn btn-ghost btn-sm border border-gray-500" aria-label="Quick view">
+                                    Quick view
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Jean Card 4 -->
+                    <article
+                        class="product-card group rounded-2xl bg-neutral-50 border border-neutral-400 overflow-hidden flex flex-col relative focus:outline-none"
+                        tabindex="0" aria-labelledby="p5-title" aria-describedby="p5-desc">
+                        <div class="relative aspect-[3/4] bg-slate-100 hover-gallery" aria-hidden="false">
+                            <img src="./assets/images/products/pants/jean/jeans(1).jpg" alt="Classic Blue Jeans — front"
+                                data-index="0" data-visible="true" />
+                            <img src="./assets/images/products/pants/jean/jeans(1).jpg" alt="Classic Blue Jeans — front"
+                                data-index="0" data-visible="true" />
+                            <img src="./assets/images/products/pants/jean/jeans(2).jpg" alt="Classic Blue Jeans — back"
+                                data-index="1" />
+                            <img src="./assets/images/products/pants/jean/jeans(3).jpg"
+                                alt="Classic Blue Jeans — detail" data-index="2" />
+                            <img src="./assets/images/products/pants/jean/jeans(4).jpg" alt="Classic Blue Jeans — fit"
+                                data-index="3" />
+                        </div>
+                        <div class="card-body flex-1 flex flex-col justify-between">
+                            <div>
+                                <h3 id="p5-title" class="text-md font-medium flex items-center justify-between">
+                                    <span>Cargo Jeans</span>
+                                    <span class="text-lg font-semibold">₹2599</span>
+                                </h3>
+                                <p id="p5-desc" class="text-sm text-neutral-600 mt-2">
+                                    Functional cargo jeans with multiple pockets. Ideal for
+                                    outdoor adventures and work.
+                                </p>
+                                <div class="mt-3 flex items-center justify-between gap-3">
+                                    <div class="flex items-center gap-1" aria-hidden="true">
+                                        <span class="text-sm flex items-center gap-2">
+                                            <i data-lucide="star" class="text-yellow-500"
+                                                style="fill: currentColor; stroke: none"></i>
+                                            <span class="font-bold">4.5</span>
+                                        </span>
+                                        <span class="text-xs font-bold text-neutral-600 ml-1">
+                                            (45)</span>
+                                    </div>
+                                    <div class="flex items-center gap-1">
+                                        <span class="text-xs text-neutral-500 font-bold">Sizes</span>
+                                        <div class="ml-2 flex gap-1">
+                                            <button class="btn btn-xs btn-outline rounded-sm" aria-label="Size 30">
+                                                30
+                                            </button>
+                                            <button class="btn btn-xs btn-outline rounded-sm" aria-label="Size 32">
+                                                32
+                                            </button>
+                                            <button class="btn btn-xs btn-outline rounded-sm" aria-label="Size 34">
+                                                34
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex justify-center gap-4 mt-2">
+                                <button class="btn btn-sm btn-ghost bg-black text-white md:w-auto"
+                                    aria-label="Add to cart">
+                                    Add to cart
+                                </button>
+                                <button class="btn btn-ghost btn-sm border border-gray-500" aria-label="Quick view">
+                                    Quick view
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cotton Pants Collection -->
+        <section id="Cotton" class="pb-10 relative">
+            <div class="container mx-auto px-6 md:px-8">
+                <div class="flex flex-wrap items-end justify-between gap-4 mb-6">
+                    <div>
+                        <p class="text-sm uppercase tracking-[0.25em] text-neutral-600">
+                            Comfort Wear
+                        </p>
+                        <h2 class="text-2xl md:text-4xl font-semibold tracking-tight">
+                            Breathable Cotton Pants
+                        </h2>
+                    </div>
+                    <button class="btn btn-ghost btn-sm rounded-none border border-neutral-500 text-xs md:text-sm">
+                        View More
+                    </button>
+                </div>
+
+                <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 py-6">
+                    <!-- Cotton Card 1 -->
+                    <article
+                        class="product-card group rounded-2xl bg-neutral-50 border border-neutral-400 overflow-hidden flex flex-col relative focus:outline-none"
+                        tabindex="0" aria-labelledby="p6-title" aria-describedby="p6-desc">
+                        <div class="relative aspect-[3/4] bg-slate-100 hover-gallery" aria-hidden="false">
+                            <img src="./assets/images/products/pants/cotton/cotton(1).jpg" alt="Classic Cotton — front"
+                                data-index="0" data-visible="true" />
+                            <img src="./assets/images/products/pants/cotton/cotton(1).jpg" alt="Classic Cotton — front"
+                                data-index="0" data-visible="true" />
+                            <img src="./assets/images/products/pants/cotton/cotton(2).jpg" alt="Classic Cotton — back"
+                                data-index="1" />
+                            <img src="./assets/images/products/pants/cotton/cotton(3).jpg" alt="Classic Cotton — detail"
+                                data-index="2" />
+                            <img src="./assets/images/products/pants/cotton/cotton(4).jpg" alt="Classic Cotton — fit"
+                                data-index="3" />
+                        </div>
+                        <div class="card-body flex-1 flex flex-col justify-between">
+                            <div>
+                                <h3 id="p6-title" class="text-md font-medium flex items-center justify-between">
+                                    <span>Classic Cotton Beige</span>
+                                    <span class="text-lg font-semibold">₹1599</span>
+                                </h3>
+                                <p id="p6-desc" class="text-sm text-neutral-600 mt-2">
+                                    100% organic cotton pants. Breathable, comfortable, and
+                                    perfect for everyday wear.
+                                </p>
+                                <div class="mt-3 flex items-center justify-between gap-3">
+                                    <div class="flex items-center gap-1" aria-hidden="true">
+                                        <span class="text-sm flex items-center gap-2">
+                                            <i data-lucide="star" class="text-yellow-500"
+                                                style="fill: currentColor; stroke: none"></i>
+                                            <span class="font-bold">4.9</span>
+                                        </span>
+                                        <span class="text-xs font-bold text-neutral-600 ml-1">
+                                            (203)</span>
+                                    </div>
+                                    <div class="flex items-center gap-1">
+                                        <span class="text-xs text-neutral-500 font-bold">Sizes</span>
+                                        <div class="ml-2 flex gap-1">
+                                            <button class="btn btn-xs btn-outline rounded-sm" aria-label="Size S">
+                                                S
+                                            </button>
+                                            <button class="btn btn-xs btn-outline rounded-sm" aria-label="Size M">
+                                                M
+                                            </button>
+                                            <button class="btn btn-xs btn-outline rounded-sm" aria-label="Size L">
+                                                L
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex justify-center gap-4 mt-2">
+                                <button class="btn btn-sm btn-ghost bg-black text-white md:w-auto"
+                                    aria-label="Add to cart">
+                                    Add to cart
+                                </button>
+                                <button class="btn btn-ghost btn-sm border border-gray-500" aria-label="Quick view">
+                                    Quick view
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Cotton Card 2 -->
+                    <article
+                        class="product-card group rounded-2xl bg-neutral-50 border border-neutral-400 overflow-hidden flex flex-col relative focus:outline-none"
+                        tabindex="0" aria-labelledby="p7-title" aria-describedby="p7-desc">
+                        <div class="relative aspect-[3/4] bg-slate-100 hover-gallery" aria-hidden="false">
+                            <img src="./assets/images/products/pants/cotton/cotton(1).jpg" alt="Navy Cotton — front"
+                                data-index="0" data-visible="true" />
+                            <img src="./assets/images/products/pants/cotton/cotton(1).jpg" alt="Navy Cotton — front"
+                                data-index="0" data-visible="true" />
+                            <img src="./assets/images/products/pants/cotton/cotton(2).jpg" alt="Navy Cotton — back"
+                                data-index="1" />
+                            <img src="./assets/images/products/pants/cotton/cotton(3).jpg" alt="Navy Cotton — detail"
+                                data-index="2" />
+                            <img src="./assets/images/products/pants/cotton/cotton(4).jpg" alt="Navy Cotton — fit"
+                                data-index="3" />
+                        </div>
+                        <div class="card-body flex-1 flex flex-col justify-between">
+                            <div>
+                                <h3 id="p7-title" class="text-md font-medium flex items-center justify-between">
+                                    <span>Navy Cotton Chino</span>
+                                    <span class="text-lg font-semibold">₹1799</span>
+                                </h3>
+                                <p id="p7-desc" class="text-sm text-neutral-600 mt-2">
+                                    Sophisticated navy cotton chinos. Versatile for office and
+                                    casual settings.
+                                </p>
+                                <div class="mt-3 flex items-center justify-between gap-3">
+                                    <div class="flex items-center gap-1" aria-hidden="true">
+                                        <span class="text-sm flex items-center gap-2">
+                                            <i data-lucide="star" class="text-yellow-500"
+                                                style="fill: currentColor; stroke: none"></i>
+                                            <span class="font-bold">4.8</span>
+                                        </span>
+                                        <span class="text-xs font-bold text-neutral-600 ml-1">
+                                            (178)</span>
+                                    </div>
+                                    <div class="flex items-center gap-1">
+                                        <span class="text-xs text-neutral-500 font-bold">Sizes</span>
+                                        <div class="ml-2 flex gap-1">
+                                            <button class="btn btn-xs btn-outline rounded-sm" aria-label="Size S">
+                                                S
+                                            </button>
+                                            <button class="btn btn-xs btn-outline rounded-sm" aria-label="Size M">
+                                                M
+                                            </button>
+                                            <button class="btn btn-xs btn-outline rounded-sm" aria-label="Size L">
+                                                L
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex justify-center gap-4 mt-2">
+                                <button class="btn btn-sm btn-ghost bg-black text-white md:w-auto"
+                                    aria-label="Add to cart">
+                                    Add to cart
+                                </button>
+                                <button class="btn btn-ghost btn-sm border border-gray-500" aria-label="Quick view">
+                                    Quick view
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Cotton Card 3 -->
+                    <article
+                        class="product-card group rounded-2xl bg-neutral-50 border border-neutral-400 overflow-hidden flex flex-col relative focus:outline-none"
+                        tabindex="0" aria-labelledby="p8-title" aria-describedby="p8-desc">
+                        <div class="relative aspect-[3/4] bg-slate-100 hover-gallery" aria-hidden="false">
+                            <img src="./assets/images/products/pants/cotton/cotton(1).jpg" alt="Olive Cotton — front"
+                                data-index="0" data-visible="true" />
+                            <img src="./assets/images/products/pants/cotton/cotton(1).jpg" alt="Olive Cotton — front"
+                                data-index="0" data-visible="true" />
+                            <img src="./assets/images/products/pants/cotton/cotton(2).jpg" alt="Olive Cotton — back"
+                                data-index="1" />
+                            <img src="./assets/images/products/pants/cotton/cotton(3).jpg" alt="Olive Cotton — detail"
+                                data-index="2" />
+                            <img src="./assets/images/products/pants/cotton/cotton(4).jpg" alt="Olive Cotton — fit"
+                                data-index="3" />
+                        </div>
+                        <div class="card-body flex-1 flex flex-col justify-between">
+                            <div>
+                                <h3 id="p8-title" class="text-md font-medium flex items-center justify-between">
+                                    <span>Olive Cotton</span>
+                                    <span class="text-lg font-semibold">₹1699</span>
+                                </h3>
+                                <p id="p8-desc" class="text-sm text-neutral-600 mt-2">
+                                    Earthy olive cotton pants. Perfect for outdoor adventures
+                                    and relaxed weekends.
+                                </p>
+                                <div class="mt-3 flex items-center justify-between gap-3">
+                                    <div class="flex items-center gap-1" aria-hidden="true">
+                                        <span class="text-sm flex items-center gap-2">
+                                            <i data-lucide="star" class="text-yellow-500"
+                                                style="fill: currentColor; stroke: none"></i>
+                                            <span class="font-bold">4.7</span>
+                                        </span>
+                                        <span class="text-xs font-bold text-neutral-600 ml-1">
+                                            (92)</span>
+                                    </div>
+                                    <div class="flex items-center gap-1">
+                                        <span class="text-xs text-neutral-500 font-bold">Sizes</span>
+                                        <div class="ml-2 flex gap-1">
+                                            <button class="btn btn-xs btn-outline rounded-sm" aria-label="Size S">
+                                                S
+                                            </button>
+                                            <button class="btn btn-xs btn-outline rounded-sm" aria-label="Size M">
+                                                M
+                                            </button>
+                                            <button class="btn btn-xs btn-outline rounded-sm" aria-label="Size L">
+                                                L
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex justify-center gap-4 mt-2">
+                                <button class="btn btn-sm btn-ghost bg-black text-white md:w-auto"
+                                    aria-label="Add to cart">
+                                    Add to cart
+                                </button>
+                                <button class="btn btn-ghost btn-sm border border-gray-500" aria-label="Quick view">
+                                    Quick view
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Cotton Card 4 -->
+                    <article
+                        class="product-card group rounded-2xl bg-neutral-50 border border-neutral-400 overflow-hidden flex flex-col relative focus:outline-none"
+                        tabindex="0" aria-labelledby="p9-title" aria-describedby="p9-desc">
+                        <div class="relative aspect-[3/4] bg-slate-100 hover-gallery" aria-hidden="false">
+                            <img src="./assets/images/products/pants/cotton/cotton(1).jpg" alt="White Cotton — front"
+                                data-index="0" data-visible="true" />
+                            <img src="./assets/images/products/pants/cotton/cotton(1).jpg" alt="White Cotton — front"
+                                data-index="0" data-visible="true" />
+                            <img src="./assets/images/products/pants/cotton/cotton(2).jpg" alt="White Cotton — back"
+                                data-index="1" />
+                            <img src="./assets/images/products/pants/cotton/cotton(3).jpg" alt="White Cotton — detail"
+                                data-index="2" />
+                            <img src="./assets/images/products/pants/cotton/cotton(4).jpg" alt="White Cotton — fit"
+                                data-index="3" />
+                        </div>
+                        <div class="card-body flex-1 flex flex-col justify-between">
+                            <div>
+                                <h3 id="p9-title" class="text-md font-medium flex items-center justify-between">
+                                    <span>White Cotton Pants</span>
+                                    <span class="text-lg font-semibold">₹1499</span>
+                                </h3>
+                                <p id="p9-desc" class="text-sm text-neutral-600 mt-2">
+                                    Clean white cotton pants. Ideal for summer and lighter
+                                    occasions.
+                                </p>
+                                <div class="mt-3 flex items-center justify-between gap-3">
+                                    <div class="flex items-center gap-1" aria-hidden="true">
+                                        <span class="text-sm flex items-center gap-2">
+                                            <i data-lucide="star" class="text-yellow-500"
+                                                style="fill: currentColor; stroke: none"></i>
+                                            <span class="font-bold">4.6</span>
+                                        </span>
+                                        <span class="text-xs font-bold text-neutral-600 ml-1">
+                                            (67)</span>
+                                    </div>
+                                    <div class="flex items-center gap-1">
+                                        <span class="text-xs text-neutral-500 font-bold">Sizes</span>
+                                        <div class="ml-2 flex gap-1">
+                                            <button class="btn btn-xs btn-outline rounded-sm" aria-label="Size S">
+                                                S
+                                            </button>
+                                            <button class="btn btn-xs btn-outline rounded-sm" aria-label="Size M">
+                                                M
+                                            </button>
+                                            <button class="btn btn-xs btn-outline rounded-sm" aria-label="Size L">
+                                                L
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex justify-center gap-4 mt-2">
+                                <button class="btn btn-sm btn-ghost bg-black text-white md:w-auto"
+                                    aria-label="Add to cart">
+                                    Add to cart
+                                </button>
+                                <button class="btn btn-ghost btn-sm border border-gray-500" aria-label="Quick view">
+                                    Quick view
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formal Wear Collection -->
+        <section id="Formal" class="pb-10 relative">
+            <div class="container mx-auto px-6 md:px-8">
+                <div class="flex flex-wrap items-end justify-between gap-4 mb-6">
+                    <div>
+                        <p class="text-sm uppercase tracking-[0.25em] text-neutral-600">
+                            Business Essentials
+                        </p>
+                        <h2 class="text-2xl md:text-4xl font-semibold tracking-tight">
+                            Premium Formal Wear
+                        </h2>
+                    </div>
+                    <button class="btn btn-ghost btn-sm rounded-none border border-neutral-500 text-xs md:text-sm">
+                        View More
+                    </button>
+                </div>
+
+                <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 py-6">
+                    <!-- Formal Card 1 -->
+                    <article
+                        class="product-card group rounded-2xl bg-neutral-50 border border-neutral-400 overflow-hidden flex flex-col relative focus:outline-none"
+                        tabindex="0" aria-labelledby="p10-title" aria-describedby="p10-desc">
+                        <div class="relative aspect-[3/4] bg-slate-100 hover-gallery" aria-hidden="false">
+                            <img src="./assets/images/products/shirts/blue/blue(1).jpg" alt="Formal Blue Shirt — front"
+                                data-index="0" data-visible="true" />
+                            <img src="./assets/images/products/shirts/blue/blue(1).jpg" alt="Formal Blue Shirt — front"
+                                data-index="0" data-visible="true" />
+                            <img src="./assets/images/products/shirts/blue/blue(2).jpg" alt="Formal Blue Shirt — back"
+                                data-index="1" />
+                            <img src="./assets/images/products/shirts/blue/blue(3).jpg" alt="Formal Blue Shirt — detail"
+                                data-index="2" />
+                            <img src="./assets/images/products/shirts/blue/blue(4).jpg" alt="Formal Blue Shirt — fit"
+                                data-index="3" />
+                        </div>
+                        <div class="card-body flex-1 flex flex-col justify-between">
+                            <div>
+                                <h3 id="p10-title" class="text-md font-medium flex items-center justify-between">
+                                    <span>Formal Blue Shirt</span>
+                                    <span class="text-lg font-semibold">₹2199</span>
+                                </h3>
+                                <p id="p10-desc" class="text-sm text-neutral-600 mt-2">
+                                    Premium formal blue shirt. Perfect for office, meetings, and
+                                    formal events.
+                                </p>
+                                <div class="mt-3 flex items-center justify-between gap-3">
+                                    <div class="flex items-center gap-1" aria-hidden="true">
+                                        <span class="text-sm flex items-center gap-2">
+                                            <i data-lucide="star" class="text-yellow-500"
+                                                style="fill: currentColor; stroke: none"></i>
+                                            <span class="font-bold">4.9</span>
+                                        </span>
+                                        <span class="text-xs font-bold text-neutral-600 ml-1">
+                                            (234)</span>
+                                    </div>
+                                    <div class="flex items-center gap-1">
+                                        <span class="text-xs text-neutral-500 font-bold">Sizes</span>
+                                        <div class="ml-2 flex gap-1">
+                                            <button class="btn btn-xs btn-outline rounded-sm" aria-label="Size S">
+                                                S
+                                            </button>
+                                            <button class="btn btn-xs btn-outline rounded-sm" aria-label="Size M">
+                                                M
+                                            </button>
+                                            <button class="btn btn-xs btn-outline rounded-sm" aria-label="Size L">
+                                                L
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex justify-center gap-4 mt-2">
+                                <button class="btn btn-sm btn-ghost bg-black text-white md:w-auto"
+                                    aria-label="Add to cart">
+                                    Add to cart
+                                </button>
+                                <button class="btn btn-ghost btn-sm border border-gray-500" aria-label="Quick view">
+                                    Quick view
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Formal Card 2 -->
+                    <article
+                        class="product-card group rounded-2xl bg-neutral-50 border border-neutral-400 overflow-hidden flex flex-col relative focus:outline-none"
+                        tabindex="0" aria-labelledby="p11-title" aria-describedby="p11-desc">
+                        <div class="relative aspect-[3/4] bg-slate-100 hover-gallery" aria-hidden="false">
+                            <img src="./assets/images/products/shirts/blue/blue(1).jpg" alt="White Formal Shirt — front"
+                                data-index="0" data-visible="true" />
+                            <img src="./assets/images/products/shirts/blue/blue(1).jpg" alt="White Formal Shirt — front"
+                                data-index="0" data-visible="true" />
+                            <img src="./assets/images/products/shirts/blue/blue(2).jpg" alt="White Formal Shirt — back"
+                                data-index="1" />
+                            <img src="./assets/images/products/shirts/blue/blue(3).jpg"
+                                alt="White Formal Shirt — detail" data-index="2" />
+                            <img src="./assets/images/products/shirts/blue/blue(4).jpg" alt="White Formal Shirt — fit"
+                                data-index="3" />
+                        </div>
+                        <div class="card-body flex-1 flex flex-col justify-between">
+                            <div>
+                                <h3 id="p11-title" class="text-md font-medium flex items-center justify-between">
+                                    <span>White Formal Shirt</span>
+                                    <span class="text-lg font-semibold">₹1999</span>
+                                </h3>
+                                <p id="p11-desc" class="text-sm text-neutral-600 mt-2">
+                                    Classic white formal shirt. A wardrobe essential for every
+                                    professional man.
+                                </p>
+                                <div class="mt-3 flex items-center justify-between gap-3">
+                                    <div class="flex items-center gap-1" aria-hidden="true">
+                                        <span class="text-sm flex items-center gap-2">
+                                            <i data-lucide="star" class="text-yellow-500"
+                                                style="fill: currentColor; stroke: none"></i>
+                                            <span class="font-bold">5.0</span>
+                                        </span>
+                                        <span class="text-xs font-bold text-neutral-600 ml-1">
+                                            (412)</span>
+                                    </div>
+                                    <div class="flex items-center gap-1">
+                                        <span class="text-xs text-neutral-500 font-bold">Sizes</span>
+                                        <div class="ml-2 flex gap-1">
+                                            <button class="btn btn-xs btn-outline rounded-sm" aria-label="Size S">
+                                                S
+                                            </button>
+                                            <button class="btn btn-xs btn-outline rounded-sm" aria-label="Size M">
+                                                M
+                                            </button>
+                                            <button class="btn btn-xs btn-outline rounded-sm" aria-label="Size L">
+                                                L
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex justify-center gap-4 mt-2">
+                                <button class="btn btn-sm btn-ghost bg-black text-white md:w-auto"
+                                    aria-label="Add to cart">
+                                    Add to cart
+                                </button>
+                                <button class="btn btn-ghost btn-sm border border-gray-500" aria-label="Quick view">
+                                    Quick view
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Formal Card 3 -->
+                    <article
+                        class="product-card group rounded-2xl bg-neutral-50 border border-neutral-400 overflow-hidden flex flex-col relative focus:outline-none"
+                        tabindex="0" aria-labelledby="p12-title" aria-describedby="p12-desc">
+                        <div class="relative aspect-[3/4] bg-slate-100 hover-gallery" aria-hidden="false">
+                            <img src="./assets/images/products/shirts/meron/meroun(2).jpg"
+                                alt="Maroon Formal Shirt — front" data-index="0" data-visible="true" />
+                            <img src="./assets/images/products/shirts/meron/meroun(2).jpg"
+                                alt="Maroon Formal Shirt — front" data-index="0" data-visible="true" />
+                            <img src="./assets/images/products/shirts/meron/meroun(3).jpg"
+                                alt="Maroon Formal Shirt — back" data-index="1" />
+                            <img src="./assets/images/products/shirts/meron/meroun(5).jpg"
+                                alt="Maroon Formal Shirt — detail" data-index="2" />
+                            <img src="./assets/images/products/shirts/meron/meroun(1).jpg"
+                                alt="Maroon Formal Shirt — fit" data-index="3" />
+                        </div>
+                        <div class="card-body flex-1 flex flex-col justify-between">
+                            <div>
+                                <h3 id="p12-title" class="text-md font-medium flex items-center justify-between">
+                                    <span>Maroon Formal</span>
+                                    <span class="text-lg font-semibold">₹2299</span>
+                                </h3>
+                                <p id="p12-desc" class="text-sm text-neutral-600 mt-2">
+                                    Elegant maroon formal shirt. Great for special occasions and
+                                    formal gatherings.
+                                </p>
+                                <div class="mt-3 flex items-center justify-between gap-3">
+                                    <div class="flex items-center gap-1" aria-hidden="true">
+                                        <span class="text-sm flex items-center gap-2">
+                                            <i data-lucide="star" class="text-yellow-500"
+                                                style="fill: currentColor; stroke: none"></i>
+                                            <span class="font-bold">4.8</span>
+                                        </span>
+                                        <span class="text-xs font-bold text-neutral-600 ml-1">
+                                            (156)</span>
+                                    </div>
+                                    <div class="flex items-center gap-1">
+                                        <span class="text-xs text-neutral-500 font-bold">Sizes</span>
+                                        <div class="ml-2 flex gap-1">
+                                            <button class="btn btn-xs btn-outline rounded-sm" aria-label="Size S">
+                                                S
+                                            </button>
+                                            <button class="btn btn-xs btn-outline rounded-sm" aria-label="Size M">
+                                                M
+                                            </button>
+                                            <button class="btn btn-xs btn-outline rounded-sm" aria-label="Size L">
+                                                L
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex justify-center gap-4 mt-2">
+                                <button class="btn btn-sm btn-ghost bg-black text-white md:w-auto"
+                                    aria-label="Add to cart">
+                                    Add to cart
+                                </button>
+                                <button class="btn btn-ghost btn-sm border border-gray-500" aria-label="Quick view">
+                                    Quick view
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Formal Card 4 -->
+                    <article
+                        class="product-card group rounded-2xl bg-neutral-50 border border-neutral-400 overflow-hidden flex flex-col relative focus:outline-none"
+                        tabindex="0" aria-labelledby="p13-title" aria-describedby="p13-desc">
+                        <div class="relative aspect-[3/4] bg-slate-100 hover-gallery" aria-hidden="false">
+                            <img src="./assets/images/products/shirts/lime-green/lime-green(1).jpg"
+                                alt="Black Formal Shirt — front" data-index="0" data-visible="true" />
+                            <img src="./assets/images/products/shirts/lime-green/lime-green(1).jpg"
+                                alt="Black Formal Shirt — front" data-index="0" data-visible="true" />
+                            <img src="./assets/images/products/shirts/lime-green/lime-green(2).jpg"
+                                alt="Black Formal Shirt — back" data-index="1" />
+                            <img src="./assets/images/products/shirts/lime-green/lime-green(3).jpg"
+                                alt="Black Formal Shirt — detail" data-index="2" />
+                            <img src="./assets/images/products/shirts/lime-green/lime-green(4).jpg"
+                                alt="Black Formal Shirt — fit" data-index="3" />
+                        </div>
+                        <div class="card-body flex-1 flex flex-col justify-between">
+                            <div>
+                                <h3 id="p13-title" class="text-md font-medium flex items-center justify-between">
+                                    <span>Black Formal Shirt</span>
+                                    <span class="text-lg font-semibold">₹2399</span>
+                                </h3>
+                                <p id="p13-desc" class="text-sm text-neutral-600 mt-2">
+                                    Premium black formal shirt. Perfect for evening events and
+                                    formal dinners.
+                                </p>
+                                <div class="mt-3 flex items-center justify-between gap-3">
+                                    <div class="flex items-center gap-1" aria-hidden="true">
+                                        <span class="text-sm flex items-center gap-2">
+                                            <i data-lucide="star" class="text-yellow-500"
+                                                style="fill: currentColor; stroke: none"></i>
+                                            <span class="font-bold">4.7</span>
+                                        </span>
+                                        <span class="text-xs font-bold text-neutral-600 ml-1">
+                                            (189)</span>
+                                    </div>
+                                    <div class="flex items-center gap-1">
+                                        <span class="text-xs text-neutral-500 font-bold">Sizes</span>
+                                        <div class="ml-2 flex gap-1">
+                                            <button class="btn btn-xs btn-outline rounded-sm" aria-label="Size S">
+                                                S
+                                            </button>
+                                            <button class="btn btn-xs btn-outline rounded-sm" aria-label="Size M">
+                                                M
+                                            </button>
+                                            <button class="btn btn-xs btn-outline rounded-sm" aria-label="Size L">
+                                                L
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex justify-center gap-4 mt-2">
+                                <button class="btn btn-sm btn-ghost bg-black text-white md:w-auto"
+                                    aria-label="Add to cart">
+                                    Add to cart
+                                </button>
+                                <button class="btn btn-ghost btn-sm border border-gray-500" aria-label="Quick view">
+                                    Quick view
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
     </main>
 
+
+    <!-- Footer  -->
     <footer class="footer sm:footer-horizontal bg-base-300 text-base-content p-10">
         <nav>
             <img src="./assets/images/logos/logo(7).svg" alt="">

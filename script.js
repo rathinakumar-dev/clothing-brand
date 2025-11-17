@@ -1,4 +1,6 @@
-lucide.createIcons();
+if (typeof WOW !== "undefined") {
+  new WOW().init();
+}
 
 // Navbar start
 const menuBtn = document.getElementById("menu-btn");
@@ -19,5 +21,5 @@ mobileMenu.addEventListener("click", (e) => {
   }
 });
 // Navbar end
-
+  
  
