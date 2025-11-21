@@ -37,6 +37,14 @@ body {
   letter-spacing: 0.08em;
 }
 
+.collapse.collapse-plus > .collapse-title:after {
+  width: 1.5rem !important;
+  height: 1.5rem !important;
+  top: 4px;
+  font-size: 1.5rem !important;
+  color: var(--secondary-color) !important;
+}
+
 .hero-section {
   position: relative;
   overflow: hidden;
@@ -330,10 +338,9 @@ body {
 }
 
 .footer-modern {
-  background: #050806;
+  background: #0f3624;
   color: rgba(255, 255, 255, 0.85);
-  margin-top: 4rem;
-  padding-top: 4rem;
+  padding-top: 3rem;
 }
 
 .footer-grid {
@@ -363,9 +370,9 @@ body {
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  margin-top: 3rem;
-  padding-block: 1.8rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.822);
+  margin-top: 2rem;
+  padding-block: 1rem;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
@@ -415,4 +422,26 @@ body {
 }
 .infinite-scroll {
   animation: scroll-x 6s linear infinite;
+}
+
+.render-products {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 75%, rgba(0, 0, 0, 0.65));
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+@keyframes modal-pop {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }

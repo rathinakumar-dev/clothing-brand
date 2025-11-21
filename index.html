@@ -17,7 +17,7 @@
     <!-- Custom CSS  -->
     <link rel="stylesheet" href="style.css" />
     <!-- Favicon -->
-    <link rel="icon" href="./assets/images/logos/logo-1.png" />
+    <link rel="icon" href="assets/images/logos/logo-1.png" />
     <!-- Daisy Ui  -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <!-- Swiper CSS -->
@@ -31,7 +31,9 @@
 </head>
 
 <body class="min-h-screen tracking-wide">
-    <header class="bg-white">
+
+    <!-- Header+Navbar  -->
+    <header class="bg-white intro-animate">
         <!-- Header Bar -->
         <div class="grid grid-cols-3 items-center border-b-[10px] border-b-[#0e482e] px-4 md:px-10 py-3 mb-2">
             <!-- Left: Hamburger (mobile only) -->
@@ -43,19 +45,19 @@
             </div>
             <!-- Center: Logo -->
             <div class="flex justify-center">
-                <img src="./assets/images/logos/new-logo.png" alt="Logo" class="w-32 md:w-48" />
+                <img src="assets/images/logos/new-logo.png" alt="Logo" class="w-32 md:w-48" />
             </div>
             <!-- Right: Login & Bag -->
             <div class="flex justify-end gap-2 md:gap-3">
-                <button
+                <button id="loginTrigger"
                     class="bg-[var(--primary-color)] px-1.5 sm:px-3 py-1.5 sm:py-2 text-[#0e482e] font-semibold rounded-md text-sm md:text-base">
                     <span class="hidden sm:inline">B2B Login</span>
                     <i class="fa-solid fa-user"></i>
                 </button>
-                <a href="javascript:void(0)"
+                <button id="bagTrigger"
                     class="bg-[var(--primary-color)] px-1.5 sm:px-3 py-1.5 sm:py-2 rounded-md inline-flex items-center">
                     <i class="fa-solid fa-bag-shopping text-[#0e482e]"></i>
-                </a>
+                </button>
             </div>
         </div>
 
@@ -66,26 +68,26 @@
                     class="text-[#0e482e] font-semibold px-4 py-2 bg-[var(--primary-color)] hover:bg-[#0e482e] hover:text-white transition-colors rounded-md">
                     Categories <i class="fa-solid fa-angle-down ml-2"></i>
                 </div>
-                <ul tabindex="-1" class="dropdown-content menu p-2 rounded-md w-37 z-10 bg-gray-200 shadow-2xl mt-0">
+                <ul tabindex="-1" class="dropdown-content menu p-2 rounded-md w-37 z-10 bg-gray-100 shadow-2xl mt-0">
                     <li>
                         <a
-                            class="hover:bg-[#0e482e] hover:text-white text-[#0e482e] font-semibold transition-colors duration-200 rounded-md">All</a>
+                            class="hover:bg-[#0e482e] hover:text-white text-[#0e482e] font-semibold !focus:bg-[var(--secondary-color)] active:bg-[var(--secondary-color)] active:text-white transition-colors duration-200 rounded-md">All</a>
                     </li>
                     <li>
                         <a
-                            class="hover:bg-[#0e482e] hover:text-white text-[#0e482e] font-semibold transition-colors duration-200 rounded-md">Trousers</a>
+                            class="hover:bg-[#0e482e] hover:text-white text-[#0e482e] font-semibold !focus:bg-[var(--secondary-color)] active:bg-[var(--secondary-color)] active:text-white transition-colors duration-200 rounded-md">Trousers</a>
                     </li>
                     <li>
                         <a
-                            class="hover:bg-[#0e482e] hover:text-white text-[#0e482e] font-semibold transition-colors duration-200 rounded-md">T-Shirts</a>
+                            class="hover:bg-[#0e482e] hover:text-white text-[#0e482e] font-semibold !focus:bg-[var(--secondary-color)] active:bg-[var(--secondary-color)] active:text-white transition-colors duration-200 rounded-md">T-Shirts</a>
                     </li>
                     <li>
                         <a
-                            class="hover:bg-[#0e482e] hover:text-white text-[#0e482e] font-semibold transition-colors duration-200 rounded-md">Jeans</a>
+                            class="hover:bg-[#0e482e] hover:text-white text-[#0e482e] font-semibold !focus:bg-[var(--secondary-color)] active:bg-[var(--secondary-color)] active:text-white transition-colors duration-200 rounded-md">Jeans</a>
                     </li>
                     <li>
                         <a
-                            class="hover:bg-[#0e482e] hover:text-white text-[#0e482e] font-semibold transition-colors duration-200 rounded-md">Cargo</a>
+                            class="hover:bg-[#0e482e] hover:text-white text-[#0e482e] font-semibold !focus:bg-[var(--secondary-color)] active:bg-[var(--secondary-color)] active:text-white transition-colors duration-200 rounded-md">Cargo</a>
                     </li>
                 </ul>
             </div>
@@ -108,7 +110,8 @@
 
             <div class="p-3 space-y-1">
                 <!-- DaisyUI collapse for Categories -->
-                <div tabindex="0" class="collapse collapse-plus bg-transparent border border-transparent">
+                <div tabindex="0"
+                    class="collapse collapse-plus bg-transparent border border-transparent &>.collapse-title:after ">
                     <input type="checkbox" class="hidden" name="category" />
                     <div class="collapse-title flex items-center justify-between p-3">
                         <span class="text-[var(--secondary-color)] font-semibold">Categories</span>
@@ -117,31 +120,36 @@
                     <div class="collapse-content p-0">
                         <ul class="menu p-2">
                             <li>
-                                <a href="#" class="text-[var(--secondary-color)]">All</a>
+                                <a href="#" data-close-menu
+                                    class="text-[var(--secondary-color)] active:bg-[var(--secondary-color)] active:text-white">All</a>
                             </li>
                             <li>
-                                <a href="#" class="text-[var(--secondary-color)]">Trousers</a>
+                                <a href="#" data-close-menu
+                                    class="text-[var(--secondary-color)] active:bg-[var(--secondary-color)] active:text-white">Trousers</a>
                             </li>
                             <li>
-                                <a href="#" class="text-[var(--secondary-color)]">Jeans</a>
+                                <a href="#" data-close-menu
+                                    class="text-[var(--secondary-color)] active:bg-[var(--secondary-color)] active:text-white">Jeans</a>
                             </li>
                             <li>
-                                <a href="#" class="text-[var(--secondary-color)]">T-Shirts</a>
+                                <a href="#" data-close-menu
+                                    class="text-[var(--secondary-color)] active:bg-[var(--secondary-color)] active:text-white">T-Shirts</a>
                             </li>
                             <li>
-                                <a href="#" class="text-[var(--secondary-color)]">Cargo</a>
+                                <a href="#" data-close-menu
+                                    class="text-[var(--secondary-color)] active:bg-[var(--secondary-color)] active:text-white">Cargo</a>
                             </li>
                         </ul>
                     </div>
                 </div>
 
                 <!-- Other items -->
-                <a href="#"
+                <a href="#" data-close-menu
                     class="block text-[var(--secondary-color)] font-semibold px-3 py-3 rounded transition-colors">
                     New Arrival
                 </a>
 
-                <a href="#"
+                <a href="#" data-close-menu
                     class="block text-[var(--secondary-color)] font-semibold px-3 py-3 rounded transition-colors">
                     Bulk Order
                 </a>
@@ -153,96 +161,68 @@
     </header>
 
     <main>
-        <!-- Hero Section content + img -->
-        <section class="hero-section">
-            <div class="hero-inner">
-                <div class="hero-copy">
-                    <span class="hero-badge">NEW DROP — NOVEMBER 2025</span>
-                    <h1 class="hero-title">
-                        Elevated layers engineered for busy weekdays & late nights.
-                    </h1>
-                    <p class="hero-subtitle">
-                        Discover breathable shirting, versatile denim, and laid-back knits
-                        crafted for merchandising teams, stylists, and retail partners.
-                        Ready for B2B orders with ultra-fast fulfillment.
-                    </p>
-                    <div class="hero-cta">
-                        <button class="primary">Shop full collection</button>
-                        <!-- <button class="ghost">Download lookbook</button> -->
-                    </div>
-                    <div class="hero-metrics">
-                        <div>
-                            <strong>250+</strong>
-                            <span>Retail partners</span>
-                        </div>
-                        <div>
-                            <strong>48 hr</strong>
-                            <span>Dispatch window</span>
-                        </div>
-                        <div>
-                            <strong>15</strong>
-                            <span>New styles weekly</span>
-                        </div>
-                    </div>
+        <!-- HeroSection -->
+        <section class="swiper myHeroSwiper w-full h-[500px] intro-animate">
+            <div class="swiper-wrapper">
+
+                <!-- Slide 1 -->
+                <div class="swiper-slide hero-slide">
+                    <img src="assets/images/products/shirts/dark-blue/dark-blue-trans.png"
+                        class="w-full h-full object-cover sm:object-contain" />
                 </div>
-                <div class="hero-slider">
-                    <div class="swiper heroSwiper">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <img src="./assets/images/products/shirts/blue/blue(1).jpg"
-                                    alt="Blue Shirt Collection" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="./assets/images/products/shirts/lime-green/lime-green(2).jpg"
-                                    alt="Lime Green Drop" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="./assets/images/products/shirts/meron/meroun(2).jpg"
-                                    alt="Meron Shirt Story" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="./assets/images/products/pants/cargo/cargo(1).jpg"
-                                    alt="Cargo Pants Arrivals" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="./assets/images/products/pants/cotton/cotton(1).jpg"
-                                    alt="Cotton Pants Offer" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="./assets/images/products/pants/jean/jeans(3).jpg" alt="New Denim Jeans" />
-                            </div>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
+
+                <!-- Slide 2 -->
+                <div class="swiper-slide hero-slide">
+                    <img src="assets/images/products/shirts/lime-green/lime-green-trans.png"
+                        class="w-full h-full object-cover sm:object-contain" />
                 </div>
+
+                <!-- Slide 3 -->
+                <div class="swiper-slide hero-slide">
+                    <img src="assets/images/products/shirts/meron/meron-trans.png"
+                        class="w-full h-full object-cover sm:object-contain" />
+                </div>
+
+                <!-- Slide 4 -->
+                <div class="swiper-slide hero-slide">
+                    <img src="assets/images/products/pants/cotton/cotton-trans.png"
+                        class="w-full h-full object-cover sm:object-contain" />
+                </div>
+
+                <!-- Slide 5 -->
+                <div class="swiper-slide hero-slide">
+                    <img src="assets/images/products/pants/jean/jeans8.png"
+                        class="w-full h-full object-cover sm:object-contain" />
+                </div>
+
             </div>
         </section>
 
-        <!-- Feature Section Cards  -->
-        <section class="w-full px-2 py-8">
-            <h2 class="text-lg sm:text-2xl md:text-3xl font-bold text-center mb-10 tracking-widest"> FEATURED CATEGORIES
+        <!-- Categories Section Cards -->
+        <section class="w-full px-2 py-8 intro-animate">
+            <h2 class="text-lg sm:text-2xl md:text-3xl font-bold text-center mb-10 tracking-widest">CATEGORIES
             </h2>
 
-            <div class="grid grid-cols-3 md:grid-cols-6 gap-4 max-w-7xl mx-auto featured">
+            <div class="grid grid-cols-3 md:grid-cols-6 gap-2 md:gap-4 max-w-7xl mx-auto featured">
                 <!-- Card 1: Dropping Soon -->
-                <div
-                    class="category-card relative group aspect-square bg-gradient-to-br from-rose-300 to-rose-50 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
+                <div class="category-card relative group aspect-[1/1.5] bg-gradient-to-r from-red-500 to-red-800 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition"
+                    data-animate="hover-card">
                     <a href="javascript:void(0)">
                         <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-15 transition duration-300">
                         </div>
                         <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-3">
                             <span
-                                class="text-xs sm:text-sm md:text-base font-light text-amber-700 tracking-widest mb-2">WORTH
+                                class="text-xs sm:text-sm md:text-base font-light text-amber-300 tracking-widest mb-2">WORTH
                                 THE WAIT</span>
                             <span
-                                class="text-xs sm:text-lg md:text-xl lg:text-2xl font-black text-black tracking-widest leading-tight">DROPPING<br />SOON</span>
+                                class="text-xs sm:text-lg md:text-xl lg:text-2xl font-black text-white tracking-widest leading-tight">DROPPING<br />SOON</span>
                         </div>
                     </a>
                 </div>
 
                 <!-- Card 2: Shirts -->
-                <div
-                    class="category-card relative group aspect-square bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
+                <div class="category-card relative group aspect-[1/1.5] bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition"
+                    data-animate="hover-card">
                     <a href="javascript:void(0)">
                         <img src="assets/images/products/shirts/dark-blue/dark-blue4.jpeg"
                             class="absolute inset-0 w-full h-full object-cover opacity-90" />
@@ -257,183 +237,184 @@
                 </div>
 
                 <!-- Card 3: Trousers -->
-                <div
-                    class="category-card relative group aspect-square bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
-                    <img src="assets/images/products/pants/cotton/cotton(4).jpg"
-                        class="absolute inset-0 w-full h-full object-cover opacity-90" />
-                    <div class="absolute inset-0 bg-black opacity-20 group-hover:opacity-30 transition duration-300">
-                    </div>
-                    <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-3">
-                        <span
-                            class="text-xs sm:text-lg md:text-xl lg:text-2xl font-black text-white tracking-widest">TROUSERS</span>
-                    </div>
+                <div class="category-card relative group aspect-[1/1.5] bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition"
+                    data-animate="hover-card">
+                    <a href="javascript:void(0)">
+                        <img src="assets/images/products/pants/cotton/cotton4.jpg"
+                            class="absolute inset-0 w-full h-full object-cover opacity-90" />
+                        <div
+                            class="absolute inset-0 bg-black opacity-20 group-hover:opacity-30 transition duration-300">
+                        </div>
+                        <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-3">
+                            <span
+                                class="text-xs sm:text-lg md:text-xl lg:text-2xl font-black text-white tracking-widest">TROUSERS</span>
+                        </div>
+                    </a>
                 </div>
 
                 <!-- Card 4: Price Drop -->
-                <div
-                    class="category-card relative group aspect-square bg-gradient-to-br from-orange-400 to-orange-200 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
-                    <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-15 transition duration-300">
-                    </div>
-                    <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-3">
-                        <span
-                            class="text-xs sm:text-xl md:text-2xl lg:text-3xl font-black text-black tracking-widest">@999</span>
-                        <span
-                            class="text-xs sm:text-lg md:text-xl font-light text-orange-700 tracking-widest mt-2">SHIRTS</span>
-                    </div>
+                <div class="category-card relative group aspect-[1/1.5] bg-[var(--primary-color)] rounded-lg overflow-hidden shadow-md hover:shadow-xl transition"
+                    data-animate="hover-card">
+                    <a href="javascript:void(0)">
+                        <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-15 transition duration-300">
+                        </div>
+                        <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-3">
+                            <span
+                                class="text-xs sm:text-xl md:text-2xl lg:text-3xl font-black text-[var(--secondary-color)] tracking-widest">@999</span>
+                            <span
+                                class="text-xs sm:text-lg md:text-xl font-semibold text-white tracking-widest mt-2 ms-2">STARTS</span>
+                        </div>
+                    </a>
                 </div>
 
                 <!-- Card 5: Jeans -->
-                <div
-                    class="category-card relative group aspect-square bg-gradient-to-br from-green-0 to-green-100 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
-                    <img src="assets/images/products/pants/jean/jeans(7).jpg"
-                        class="absolute inset-0 w-full h-full object-cover opacity-80" />
-                    <div class="absolute inset-0 bg-black opacity-20 group-hover:opacity-30 transition duration-300">
-                    </div>
-                    <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-3">
-                        <span
-                            class="text-xs sm:text-lg md:text-xl lg:text-2xl font-black text-white tracking-widest">JEANS</span>
-                    </div>
+                <div class="category-card relative group aspect-[1/1.5] bg-gradient-to-br from-green-0 to-green-100 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition"
+                    data-animate="hover-card">
+                    <a href="javascript:void(0)">
+                        <img src="assets/images/products/pants/jean/jeans7.jpg"
+                            class="absolute inset-0 w-full h-full object-cover opacity-80" />
+                        <div
+                            class="absolute inset-0 bg-black opacity-20 group-hover:opacity-30 transition duration-300">
+                        </div>
+                        <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-3">
+                            <span
+                                class="text-xs sm:text-lg md:text-xl lg:text-2xl font-black text-white tracking-widest">JEANS</span>
+                        </div>
+                    </a>
                 </div>
 
                 <!-- Card 6: T-Shirts -->
-                <div
-                    class="category-card relative group aspect-square bg-gradient-to-br from-gray-900 to-gray-800 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
-                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300&h=300&fit=crop"
-                        class="absolute inset-0 w-full h-full object-cover opacity-80" />
-                    <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition duration-300">
-                    </div>
-                    <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-3">
-                        <span
-                            class="text-xs sm:text-lg md:text-xl lg:text-2xl font-black text-white tracking-widest">T-SHIRTS</span>
-                    </div>
+                <div class="category-card relative group aspect-[1/1.5] bg-gradient-to-br from-gray-900 to-gray-800 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition"
+                    data-animate="hover-card">
+                    <a href="javascript:void(0)">
+                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300&h=300&fit=crop"
+                            class="absolute inset-0 w-full h-full object-cover opacity-80" />
+                        <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition duration-300">
+                        </div>
+                        <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-3">
+                            <span
+                                class="text-xs sm:text-lg md:text-xl lg:text-2xl font-black text-white tracking-widest">T-SHIRTS</span>
+                        </div>
+                    </a>
                 </div>
 
                 <!-- Card 12: Price Drop -->
-                <div
-                    class="category-card relative group aspect-square bg-gradient-to-br from-gray-300 to-gray-700 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
-                    <div class="absolute inset-0 bg-black opacity-20 group-hover:opacity-30 transition duration-300">
-                    </div>
-                    <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-3">
-                        <span
-                            class="text-xs sm:text-xl md:text-2xl lg:text-3xl font-black text-white tracking-widest">PRICE</span>
-                        <span
-                            class="text-xs sm:text-xl md:text-2xl lg:text-3xl font-black text-white tracking-widest">DROP</span>
-                    </div>
+                <div class="category-card relative group aspect-[1/1.5] bg-[var(--secondary-color)] rounded-lg overflow-hidden shadow-md hover:shadow-xl transition"
+                    data-animate="hover-card">
+                    <a href="javascript:void(0)">
+                        <div
+                            class="absolute inset-0 bg-black opacity-20 group-hover:opacity-30 transition duration-300">
+                        </div>
+                        <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-3">
+                            <span
+                                class="text-xs sm:text-xl md:text-2xl lg:text-3xl font-black text-white tracking-widest">PRICE</span>
+                            <span
+                                class="text-xs sm:text-xl md:text-2xl lg:text-3xl font-black text-white tracking-widest">DROP</span>
+                        </div>
+                    </a>
                 </div>
 
-                <!-- Card 8: Essentials -->
-                <div
-                    class="category-card relative group aspect-square bg-gradient-to-br from-red-0 to-red-100 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
-                    <img src="/assets/images/products/pants/cotton/cotton(6).jpg"
-                        class="absolute inset-0 w-full h-full object-cover opacity-80" />
-                    <div class="absolute inset-0 bg-black opacity-20 group-hover:opacity-30 transition duration-300">
-                    </div>
-                    <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-3">
-                        <span
-                            class="text-xs sm:text-lg md:text-xl lg:text-2xl font-black text-white tracking-widest">ESSENTIALS</span>
-                    </div>
+                <!-- Card 8: Cotton -->
+                <div class="category-card relative group aspect-[1/1.5] bg-gradient-to-br from-red-0 to-red-100 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition"
+                    data-animate="hover-card">
+                    <a href="javascript:void(0)">
+                        <img src="assets/images/products/pants/cotton/cotton6.jpg"
+                            class="absolute inset-0 w-full h-full object-cover opacity-80" />
+                        <div
+                            class="absolute inset-0 bg-black opacity-20 group-hover:opacity-30 transition duration-300">
+                        </div>
+                        <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-3">
+                            <span
+                                class="text-xs sm:text-lg md:text-xl lg:text-2xl font-black text-white tracking-widest">COTTON</span>
+                        </div>
+                    </a>
                 </div>
 
                 <!-- Card 9: Plus Size -->
-                <div
-                    class="category-card relative group aspect-square bg-gradient-to-br from-purple-0 to-purple-100 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
-                    <img src="/assets/images/products/shirts/mixed/mixed(19).jpg"
-                        class="absolute inset-0 w-full h-full object-cover opacity-80" />
-                    <div class="absolute inset-0 bg-black opacity-20 group-hover:opacity-30 transition duration-300">
-                    </div>
-                    <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-3">
-                        <span
-                            class="text-xs sm:text-lg md:text-xl lg:text-2xl font-black text-white tracking-widest">PLUS
-                            SIZE</span>
-                    </div>
+                <div class="category-card relative group aspect-[1/1.5] bg-gradient-to-br from-purple-0 to-purple-100 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition"
+                    data-animate="hover-card">
+                    <a href="javascript:void(0)">
+                        <img src="assets/images/products/shirts/mixed/mixed6.jpg"
+                            class="absolute inset-0 w-full h-full object-cover opacity-80" />
+                        <div
+                            class="absolute inset-0 bg-black opacity-20 group-hover:opacity-30 transition duration-300">
+                        </div>
+                        <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-3">
+                            <span
+                                class="text-xs sm:text-lg md:text-xl lg:text-2xl font-black text-white tracking-widest">PLUS
+                                SIZE</span>
+                        </div>
+                    </a>
                 </div>
 
-                <!-- Card 10: Snitch Luxe -->
-                <div
-                    class="category-card relative group aspect-square bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
-                    <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-15 transition duration-300">
-                    </div>
-                    <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-3">
-                        <span
-                            class="text-xs sm:text-lg md:text-xl lg:text-2xl font-black text-white tracking-widest">SNITCH
-                            LUXE</span>
-                    </div>
+                <!-- Card 10: New arraival -->
+                <div class="category-card relative group aspect-[1/1.5] bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition"
+                    data-animate="hover-card">
+                    <a href="javascript:void(0)">
+                        <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-15 transition duration-300">
+                        </div>
+                        <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-3">
+                            <span
+                                class="text-xs sm:text-lg md:text-xl lg:text-2xl font-black text-white tracking-widest">NEW
+                                ARRIVAL</span>
+                        </div>
+                    </a>
                 </div>
 
                 <!-- Card 11: Printed Shirts -->
-                <div
-                    class="category-card relative group aspect-square bg-gradient-to-br from-gray-200 to-gray-300 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
-                    <img src="/assets/images/products/shirts/mixed/mixed(8).jpg"
-                        class="absolute inset-0 w-full h-full object-cover opacity-80" />
-                    <div class="absolute inset-0 bg-black opacity-20 group-hover:opacity-30 transition duration-300">
-                    </div>
-                    <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-3">
-                        <span
-                            class="text-xs sm:text-lg md:text-xl lg:text-2xl font-black text-white tracking-widest">PRINTED
-                            SHIRTS</span>
-                    </div>
+                <div class="category-card relative group aspect-[1/1.5] bg-gradient-to-br from-gray-200 to-gray-300 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition"
+                    data-animate="hover-card">
+                    <a href="javascript:void(0)">
+                        <img src="assets/images/products/shirts/mixed/mixed8.jpg"
+                            class="absolute inset-0 w-full h-full object-cover opacity-80" />
+                        <div
+                            class="absolute inset-0 bg-black opacity-20 group-hover:opacity-30 transition duration-300">
+                        </div>
+                        <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-3">
+                            <span
+                                class="text-xs sm:text-lg md:text-xl lg:text-2xl font-black text-white tracking-widest">PRINTED
+                                SHIRTS</span>
+                        </div>
+                    </a>
                 </div>
 
-                <!-- Card 12: New Design -->
-                <div
-                    class="category-card relative group aspect-square bg-gradient-to-br from-gray-0 to-gray-100 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
-                    <img src="/assets/images/products/pants/cargo/cargo(1).jpg"
-                        class="absolute inset-0 w-full h-full object-cover opacity-80" />
-                    <div class="absolute inset-0 bg-black opacity-20 group-hover:opacity-30 transition duration-300">
-                    </div>
-                    <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-3">
-                        <span
-                            class="text-xs sm:text-sm md:text-base font-light text-red-7  00 tracking-widest mb-2">NEWLY
-                            LAUNCHED</span>
-                        <span
-                            class="text-xs sm:text-lg md:text-xl lg:text-2xl font-black text-w tracking-widest text-white">Designs</span>
-                    </div>
+                <!-- Card 12: Cargos -->
+                <div class="category-card relative group aspect-[1/1.5] bg-gradient-to-br from-gray-0 to-gray-100 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition"
+                    data-animate="hover-card">
+                    <a href="javascript:void(0)">
+                        <img src="assets/images/products/pants/cargo/cargo2.png"
+                            class="absolute inset-0 w-full h-full object-cover opacity-80" />
+                        <div
+                            class="absolute inset-0 bg-black opacity-30 group-hover:opacity-50 transition duration-300">
+                        </div>
+                        <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-3">
+                            <span
+                                class="text-xs sm:text-lg md:text-xl lg:text-2xl font-black text-w tracking-widest text-white">CARGOS</span>
+                        </div>
+                    </a>
                 </div>
 
             </div>
         </section>
 
         <!-- Brand Film -->
-        <section class="section-shell" id="atelier-film">
-            <div class="media-shell">
-                <div class="media-copy">
-                    <p class="text-xs uppercase font-semibold tracking-[0.4em] text-white/80 mb-2">
-                        Inside Gaudana
-                    </p>
-                    <h3 class="font-semibold leading-tight mb-3">
-                        Your favorite silhouettes, now stitched with zero-compromise
-                        cotton blends.
-                    </h3>
-                    <p class="text-white/70 mb-2">
-                        Get an insider look from loom to lookbook. Share the clip with
-                        your retail buyers or embed it across marketplaces—no watermark,
-                        fully rights-cleared.
-                    </p>
-                </div>
-                <div class="media-frame">
-                    <video controls playsinline autoplay muted controlsList="nodownload" oncontextmenu="return false"
-                        preload="metadata"">
-              <source src=" ./assets/video/making-video.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                    </video>
-                </div>
+        <section class="section-shell intro-animate" id="atelier-film">
+            <div class="media-frame md:h-100">
+                <video controls playsinline autoplay muted controlsList="nodownload" oncontextmenu="return false"
+                    preload="metadata"">
+              <source src=" assets/video/making-video.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+                </video>
             </div>
         </section>
 
         <!-- Tab Products Section  -->
-        <section class="section-shell" id="new-popular">
+        <section class="section-shell intro-animate" id="new-popular">
             <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between mb-8">
                 <div>
-                    <p class="text-xs uppercase tracking-[0.4em] text-gray-600 mb-2 font-semibold">
-                        CURATED EDITS
-                    </p>
                     <h1 class="font-bold text-3xl uppercase tracking-tight text-gray-900">
                         New & Popular
                     </h1>
-                    <p class="text-gray-500 text-sm md:text-base mt-2">
-                        Built for discovery. Toggle through core categories and drop-ready
-                        fits updated weekly.
-                    </p>
                 </div>
                 <div id="categoryTabs" class="flex flex-wrap gap-2">
                     <button class="btn btn-sm border border-gray-500 text-[var(--secondary-color)] btn-active"
@@ -451,15 +432,15 @@
                 </div>
 
             </div>
-            <div id="cardsGrid" class="grid gap-6">
+            <div id="cardsGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-8">
                 <!-- cards injected via JS -->
             </div>
         </section>
 
         <!-- About Section  -->
-        <section class="section-shell about-shell" id="about">
+        <section class="section-shell about-shell intro-animate" id="about">
             <div class="about-visual">
-                <img src="./assets/images/products/shirts/lime-green/lime-green(1).jpg" alt="Tailoring studio"
+                <img src="assets/images/products/shirts/lime-green/lime-green-trans.png" alt="Tailoring studio"
                     loading="lazy" class="object-cover" />
             </div>
             <div class="about-copy">
@@ -516,14 +497,11 @@
         </section>
 
         <!-- Reels Video Section  -->
-        <section class="section-shell reels-shell" id="shop-by-reel">
+        <section class="section-shell reels-shell intro-animate" id="shop-by-reel">
             <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
                 <div>
-                    <p class="text-xs uppercase tracking-[0.5em] text-black font-semibold mb-2">
-                        Shop by reel
-                    </p>
                     <h2 class="text-3xl font-semibold text-gray-900">
-                        Swipeable looks for your storefront
+                        Shop by reel
                     </h2>
                 </div>
                 <div class="reel-controls">
@@ -539,7 +517,7 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <div class="reel-card">
-                            <video src="/assets/video/showcase-1.mp4" muted autoplay loop playsinline></video>
+                            <video src="assets/video/showcase-1.mp4" muted autoplay loop playsinline></video>
                             <div class="reel-info">
                                 <span>Layered story</span>
                                 <button
@@ -551,7 +529,7 @@
                     </div>
                     <div class="swiper-slide">
                         <div class="reel-card">
-                            <video src="/assets/video/showcase-2.mp4" muted autoplay loop playsinline></video>
+                            <video src="assets/video/showcase-2.mp4" muted autoplay loop playsinline></video>
                             <div class="reel-info">
                                 <span>Tropical edit</span>
                                 <button
@@ -563,7 +541,7 @@
                     </div>
                     <div class="swiper-slide">
                         <div class="reel-card">
-                            <video src="/assets/video/making-video.mp4" muted autoplay loop playsinline></video>
+                            <video src="assets/video/making-video.mp4" muted autoplay loop playsinline></video>
                             <div class="reel-info">
                                 <span>Cotton co-ords</span>
                                 <button
@@ -614,12 +592,155 @@
         </section>
     </main>
 
+    <!-- Login Modal -->
+    <div id="loginModal" class="app-modal fixed inset-0 hidden items-start justify-center p-6 sm:p-8 z-[1000]"
+        aria-hidden="true" aria-labelledby="loginModalTitle" role="dialog">
+        <div class="absolute inset-0 bg-black/70 backdrop-blur-md" data-modal-close></div>
+        <div class="relative z-[1] w-full max-w-[520px] rounded-[32px] bg-white p-6 sm:p-8 shadow-2xl"
+            style="animation: modal-pop 0.3s ease forwards;">
+            <button
+                class="absolute top-4 right-4 w-9 h-9 rounded-full grid place-items-center text-[var(--secondary-color)] bg-black/5"
+                aria-label="Close login modal" data-modal-close>
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="mb-6">
+                <p
+                    class="inline-flex items-center uppercase tracking-[0.2em] text-[0.7rem] rounded-full px-3 py-1 mb-3 border border-white/30 text-[var(--secondary-color)]">
+                    Login & Access
+                </p>
+                <h3 id="loginModalTitle" class="text-[1.8rem] mb-2">Are you new or existing?</h3>
+                <p class="text-sm text-black/70">Tell us who you are so we can get you into the right workspace.</p>
+            </div>
+            <div class="grid grid-cols-2 gap-2 mb-6">
+                <button
+                    class="segmented border border-transparent rounded-2xl px-4 py-3 font-semibold text-white bg-[var(--secondary-color)] transition-colors"
+                    type="button" data-login-view="new">New buyer</button>
+                <button
+                    class="segmented border border-black/20 rounded-2xl px-4 py-3 font-semibold bg-white text-[var(--secondary-color)] transition-colors"
+                    type="button" data-login-view="existing">Existing partner</button>
+            </div>
+            <form class="flex flex-col gap-4" id="loginModalForm">
+                <div class="flex flex-col gap-1">
+                    <label for="loginName" class="text-sm tracking-[0.05em] uppercase text-black/70">Full name</label>
+                    <input type="text" id="loginName" name="name" placeholder="Ravi Kumar" required
+                        class="rounded-2xl border border-black/10 px-4 py-3 text-[0.95rem]" />
+                </div>
+                <div class="flex flex-col gap-1">
+                    <label for="loginEmail" class="text-sm tracking-[0.05em] uppercase text-black/70">Business
+                        email</label>
+                    <input type="email" id="loginEmail" name="email" placeholder="hello@brand.com" required
+                        class="rounded-2xl border border-black/10 px-4 py-3 text-[0.95rem]" />
+                </div>
+                <div class="flex flex-col gap-1">
+                    <label for="loginPhone" class="text-sm tracking-[0.05em] uppercase text-black/70">WhatsApp
+                        number</label>
+                    <input type="tel" id="loginPhone" name="phone" placeholder="+91 98765 43210"
+                        class="rounded-2xl border border-black/10 px-4 py-3 text-[0.95rem]" />
+                </div>
+                <div class="flex flex-col gap-1" data-existing-fields hidden>
+                    <label for="loginCode" class="text-sm tracking-[0.05em] uppercase text-black/70">Existing partner
+                        code</label>
+                    <input type="text" id="loginCode" name="code" placeholder="GAU-XXXX"
+                        class="rounded-2xl border border-black/10 px-4 py-3 text-[0.95rem]" />
+                    <small class="text-xs text-black/60">You'll find this on your last invoice or onboarding
+                        email.</small>
+                </div>
+                <button type="submit"
+                    class="rounded-full bg-[var(--secondary-color)] text-white py-3 font-semibold text-base cursor-pointer mt-2">
+                    Continue
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bag / Cart Modal -->
+    <div id="bagModal" class="app-modal fixed inset-0 hidden items-start justify-center p-6 sm:p-8 z-[1000]"
+        aria-hidden="true" aria-labelledby="bagModalTitle" role="dialog">
+        <div class="absolute inset-0 bg-black/70 backdrop-blur-md" data-modal-close></div>
+        <div class="relative z-[1] w-full max-w-[520px] rounded-[32px] bg-white p-6 sm:p-8 shadow-2xl"
+            style="animation: modal-pop 0.3s ease forwards;">
+            <button
+                class="absolute top-4 right-4 w-9 h-9 rounded-full grid place-items-center text-[var(--secondary-color)] bg-black/5"
+                aria-label="Close cart modal" data-modal-close>
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="mb-6">
+                <p
+                    class="inline-flex items-center uppercase tracking-[0.2em] text-[0.7rem] rounded-full px-3 py-1 mb-3 border border-white/30 text-[var(--secondary-color)]">
+                    Your bag
+                </p>
+                <h3 id="bagModalTitle" class="text-[1.8rem] mb-2">Ready to place a bulk order?</h3>
+                <p class="text-sm text-black/70">Review items, adjust quantities and send to your merch rep.</p>
+            </div>
+            <div class="flex flex-col gap-4 mb-6">
+                <div class="flex flex-wrap sm:flex-nowrap items-center gap-4 p-3 border border-black/10 rounded-2xl">
+                    <img src="assets/images/products/shirts/dark-blue/dark-blue4.jpeg" alt="Dark blue shirt"
+                        class="w-16 h-16 object-cover rounded-xl" />
+                    <div>
+                        <p class="font-semibold">Dark Blue Shirt</p>
+                        <p class="text-sm text-black/60">Size run: 38-44 · MOQ 20</p>
+                    </div>
+                    <div
+                        class="inline-flex items-center gap-2 border border-black/10 rounded-full px-2.5 py-1 sm:ml-auto">
+                        <button type="button" class="w-7 h-7 rounded-full text-[var(--secondary-color)]"
+                            data-qty="minus" aria-label="Decrease quantity">
+                            <i class="fa-solid fa-minus"></i>
+                        </button>
+                        <span>40</span>
+                        <button type="button" class="w-7 h-7 rounded-full text-[var(--secondary-color)]" data-qty="plus"
+                            aria-label="Increase quantity">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="flex flex-wrap sm:flex-nowrap items-center gap-4 p-3 border border-black/10 rounded-2xl">
+                    <img src="assets/images/products/pants/jean/jeans7.jpg" alt="Utility denim"
+                        class="w-16 h-16 object-cover rounded-xl" />
+                    <div>
+                        <p class="font-semibold">Utility Denim</p>
+                        <p class="text-sm text-black/60">Indigo · MOQ 24</p>
+                    </div>
+                    <div
+                        class="inline-flex items-center gap-2 border border-black/10 rounded-full px-2.5 py-1 sm:ml-auto">
+                        <button type="button" class="w-7 h-7 rounded-full text-[var(--secondary-color)]"
+                            data-qty="minus" aria-label="Decrease quantity">
+                            <i class="fa-solid fa-minus"></i>
+                        </button>
+                        <span>24</span>
+                        <button type="button" class="w-7 h-7 rounded-full text-[var(--secondary-color)]" data-qty="plus"
+                            aria-label="Increase quantity">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4 mb-5">
+                <div>
+                    <p class="uppercase text-xs text-black/60 tracking-[0.15em]">Estimated units</p>
+                    <strong class="text-2xl text-[var(--secondary-color)]">64</strong>
+                </div>
+                <div>
+                    <p class="uppercase text-xs text-black/60 tracking-[0.15em]">Ready to ship in</p>
+                    <strong class="text-2xl text-[var(--secondary-color)]">5 days</strong>
+                </div>
+            </div>
+            <div class="flex flex-wrap gap-3">
+                <button
+                    class="flex-1 basis-40 rounded-full px-4 py-3 font-semibold border border-black/20 text-[var(--secondary-color)]"
+                    type="button">Save draft</button>
+                <button
+                    class="flex-1 basis-40 rounded-full px-4 py-3 font-semibold border border-transparent bg-[var(--secondary-color)] text-white"
+                    type="button">Share with rep</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer Section -->
-    <footer class="footer-modern">
-        <div class="section-shell pt-0">
+    <footer class="footer-modern intro-animate">
+        <div class="section-shell !pt-0 !pb-0">
             <div class="footer-grid">
                 <div>
-                    <img src="./assets/images/logos/new-logo.png" alt="Gaudana" class="w-32 mb-4" />
+                    <img src="assets/images/logos/new-logo.png" alt="Gaudana" class="w-32 mb-4" />
                     <p class="text-sm text-white/70 mb-4">
                         Menswear designed in Chennai, shipping globally. B2B-ready catalogs,
                         private label options, and after-sales support on WhatsApp.
@@ -659,34 +780,20 @@
                     </p>
                     <p class="text-white/50 text-sm mt-3">Mon – Sat · 10am to 8pm</p>
                 </div>
-                <div>
-                    <h4>Newsletter</h4>
-                    <p class="text-sm text-white/70 mb-3">
-                        Weekly inspiration, B2B promos, and invite-only previews.
-                    </p>
-                    <form class="flex gap-2">
-                        <input type="email" placeholder="Email address"
-                            class="w-full rounded-full bg-white/5 border border-white/10 px-4 py-2 text-sm focus:outline-none focus:border-white/60"
-                            required />
-                        <button class="px-5 py-2 rounded-full bg-white text-[var(--secondary-color)] text-sm font-bold">
-                            Join
-                        </button>
-                    </form>
-                </div>
             </div>
             <div class="footer-bottom">
                 <span>© 2025 Gaudana. All rights reserved.</span>
-                <div class="flex gap-4">
-                    <a href="javascript:void(0)" class="footer-link text-xs">Privacy</a>
-                    <a href="javascript:void(0)" class="footer-link text-xs">Terms</a>
-                    <a href="javascript:void(0)" class="footer-link text-xs">Credits</a>
+                <div class="flex gap-4 items-center">
+                    <a href="javascript:void(0)" class="footer-link text-xs !mb-0">Privacy</a>
+                    <a href="javascript:void(0)" class="footer-link text-xs !mb-0">Terms</a>
+                    <a href="javascript:void(0)" class="footer-link text-xs !mb-0">Credits</a>
                 </div>
             </div>
         </div>
     </footer>
 
     <!-- Infinite text scroll section -->
-    <section class="w-full bg-black py-8">
+    <section class="w-full bg-black py-8 intro-animate">
         <div class="mx-auto max-w-7xl px-4">
             <div class="overflow-hidden">
                 <div
@@ -714,6 +821,7 @@
     <script src="https://kit.fontawesome.com/d96a3e64f1.js" crossorigin="anonymous"></script>
     <!-- Flowbite Script -->
     <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+
 </body>
 
 </html>
