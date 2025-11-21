@@ -72,18 +72,18 @@ const toggleMobileMenu = (show = false) => {
 hamburger?.addEventListener("click", () => toggleMobileMenu(true));
 closeMenu?.addEventListener("click", () => toggleMobileMenu(false));
 overlay?.addEventListener("click", () => toggleMobileMenu(false));
-mobileMenu?.addEventListener("click", event => {
+mobileMenu?.addEventListener("click", (event) => {
   const closeTrigger = event.target.closest("[data-close-menu]");
   if (closeTrigger) {
     toggleMobileMenu(false);
   }
 });
 
-const setBodyLock = shouldLock => {
+const setBodyLock = (shouldLock) => {
   document.body.classList.toggle("modal-open", shouldLock);
 };
 
-const openModal = modalEl => {
+const openModal = (modalEl) => {
   if (!modalEl) return;
   modalEl.classList.add("is-visible", "flex");
   modalEl.classList.remove("hidden");
@@ -91,7 +91,7 @@ const openModal = modalEl => {
   setBodyLock(true);
 };
 
-const closeModal = modalEl => {
+const closeModal = (modalEl) => {
   if (!modalEl) return;
   modalEl.classList.remove("is-visible", "flex");
   modalEl.classList.add("hidden");
@@ -105,14 +105,14 @@ const closeModal = modalEl => {
 loginTrigger?.addEventListener("click", () => openModal(loginModal));
 bagTrigger?.addEventListener("click", () => openModal(bagModal));
 
-document.addEventListener("click", event => {
+document.addEventListener("click", (event) => {
   const closeEl = event.target.closest("[data-modal-close]");
   if (closeEl) {
     closeModal(closeEl.closest(".app-modal"));
   }
 });
 
-document.addEventListener("keydown", event => {
+document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     document.querySelectorAll(".app-modal.is-visible").forEach(closeModal);
   }
@@ -130,14 +130,14 @@ const toggleSegmentAppearance = (button, isActive) => {
   button.classList.toggle("border-black/20", !isActive);
 };
 
-loginViewButtons.forEach(button => {
+loginViewButtons.forEach((button) => {
   const isDefault = button.dataset.loginView === "new";
   toggleSegmentAppearance(button, isDefault);
 });
 
-loginViewButtons.forEach(button => {
+loginViewButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    loginViewButtons.forEach(btn => {
+    loginViewButtons.forEach((btn) => {
       const isActive = btn === button;
       toggleSegmentAppearance(btn, isActive);
     });
@@ -246,44 +246,124 @@ const animateFeatured = () => {
 const cardData = {
   all: [
     // Shirts (4)
-    { img: "assets/images/products/shirts/blue/blue1.jpg",        hoverImg: "assets/images/products/shirts/blue/blue2.jpg",        title: "Blue Oxford Shirt",    type: "shirts" },
-    { img: "assets/images/products/shirts/lime-green/lime-green-trans.png",  hoverImg: "assets/images/products/shirts/lime-green/lime-green1.jpg",  title: "Lime Resort Shirt",   type: "shirts" },
-    { img: "assets/images/products/shirts/dark-blue/dark-blue4.jpeg", hoverImg: "assets/images/products/shirts/dark-blue/dark-blue1.jpeg", title: "Dark Blue Shirt", type: "shirts" },
-    { img: "assets/images/products/shirts/mixed/mixed6.jpg",      hoverImg: "assets/images/products/shirts/mixed/mixed7.jpg",      title: "Mixed Print Shirt",   type: "shirts" },
+    {
+      img: "assets/images/products/shirts/blue/blue1.jpg",
+      hoverImg: "assets/images/products/shirts/blue/blue2.jpg",
+      title: "Blue Oxford Shirt",
+      type: "shirts",
+    },
+    {
+      img: "assets/images/products/shirts/lime-green/lime-green-trans.png",
+      hoverImg: "assets/images/products/shirts/lime-green/lime-green1.jpg",
+      title: "Lime Resort Shirt",
+      type: "shirts",
+    },
+    {
+      img: "assets/images/products/shirts/dark-blue/dark-blue4.jpeg",
+      hoverImg: "assets/images/products/shirts/dark-blue/dark-blue1.jpeg",
+      title: "Dark Blue Shirt",
+      type: "shirts",
+    },
+    {
+      img: "assets/images/products/shirts/mixed/mixed6.jpg",
+      hoverImg: "assets/images/products/shirts/mixed/mixed7.jpg",
+      title: "Mixed Print Shirt",
+      type: "shirts",
+    },
 
     // Trousers (3)
-    { img: "assets/images/products/pants/cotton/cotton4.jpg",     hoverImg: "assets/images/products/pants/cotton/cotton5.jpg",     title: "Cotton Trouser",      type: "trousers" },
-    { img: "assets/images/products/pants/cotton/cotton6.jpg",     hoverImg: "assets/images/products/pants/cotton/cotton7.jpg",     title: "Cotton Comfort",      type: "trousers" },
-    { img: "assets/images/products/pants/jean/jeans7.jpg",         hoverImg: "assets/images/products/pants/jean/jeans8.png",         title: "Denim Trouser",      type: "trousers" },
+    {
+      img: "assets/images/products/pants/cotton/cotton4.jpg",
+      hoverImg: "assets/images/products/pants/cotton/cotton5.jpg",
+      title: "Cotton Trouser",
+      type: "trousers",
+    },
+    {
+      img: "assets/images/products/pants/cotton/cotton6.jpg",
+      hoverImg: "assets/images/products/pants/cotton/cotton7.jpg",
+      title: "Cotton Comfort",
+      type: "trousers",
+    },
+    {
+      img: "assets/images/products/pants/jean/jeans7.jpg",
+      hoverImg: "assets/images/products/pants/jean/jeans8.png",
+      title: "Denim Trouser",
+      type: "trousers",
+    },
 
     // T-Shirts (3)
-    { img: "assets/images/products/t-shirts/t-shirt-1.webp",         hoverImg: "assets/images/products/t-shirts/t-shirt-4.webp",         title: "Minimal Tee",         type: "tshirts" },
-    { img: "assets/images/products/t-shirts/t-shirt-2.webp",         hoverImg: "assets/images/products/t-shirts/t-shirt-5.webp",         title: "Monogram Tee",        type: "tshirts" },
-    { img: "assets/images/products/t-shirts/t-shirt-3.webp",         hoverImg: "assets/images/products/t-shirts/t-shirt-1.webp",         title: "Soft Touch Tee",      type: "tshirts" },
+    {
+      img: "assets/images/products/t-shirts/t-shirt-1.webp",
+      hoverImg: "assets/images/products/t-shirts/t-shirt-4.webp",
+      title: "Minimal Tee",
+      type: "tshirts",
+    },
+    {
+      img: "assets/images/products/t-shirts/t-shirt-2.webp",
+      hoverImg: "assets/images/products/t-shirts/t-shirt-5.webp",
+      title: "Monogram Tee",
+      type: "tshirts",
+    },
+    {
+      img: "assets/images/products/t-shirts/t-shirt-3.webp",
+      hoverImg: "assets/images/products/t-shirts/t-shirt-1.webp",
+      title: "Soft Touch Tee",
+      type: "tshirts",
+    },
 
     // Jeans (2)
-    { img: "assets/images/products/pants/jean/jeans1.jpg",        hoverImg: "assets/images/products/pants/jean/jeans3.jpg",        title: "Slim Fit Jeans",      type: "jeans" },
-    { img: "assets/images/products/pants/jean/jeans2.jpg",        hoverImg: "assets/images/products/pants/jean/jeans4.jpg",        title: "Classic Blue Jeans",  type: "jeans" },
+    {
+      img: "assets/images/products/pants/jean/jeans1.jpg",
+      hoverImg: "assets/images/products/pants/jean/jeans3.jpg",
+      title: "Slim Fit Jeans",
+      type: "jeans",
+    },
+    {
+      img: "assets/images/products/pants/jean/jeans2.jpg",
+      hoverImg: "assets/images/products/pants/jean/jeans5.jpg",
+      title: "Classic Blue Jeans",
+      type: "jeans",
+    },
 
     // Cargo (2)
-    { img: "assets/images/products/pants/cargo/cargo2.png",       hoverImg: "assets/images/products/pants/cargo/cargo1.jpg",       title: "Utility Cargo",       type: "cargo" },
-    { img: "assets/images/products/pants/cargo/cargo1.jpg",       hoverImg: "assets/images/products/pants/cargo/cargo2.png",       title: "Urban Cargo",         type: "cargo" },
-    
-    // Special  
-    { img: "assets/images/products/shirts/mixed/mixed8.jpg",      hoverImg: "assets/images/products/shirts/mixed/mixed1.jpg",      title: "Printed Shirt",          type: "shirts" },
-    { img: "assets/images/products/pants/jean/jeans10.jpg",        hoverImg: "assets/images/products/pants/jean/jeans9.png",        title: "Stretch Jeans",          type: "jeans" }
-  ]
+    {
+      img: "assets/images/products/pants/cargo/cargo3.jpg",
+      hoverImg: "assets/images/products/pants/cargo/cargo2.png",
+      title: "Utility Cargo",
+      type: "cargo",
+    },
+    {
+      img: "assets/images/products/pants/cargo/cargo4.webp",
+      hoverImg: "assets/images/products/pants/cargo/cargo5.webp",
+      title: "Urban Cargo",
+      type: "cargo",
+    },
+
+    // Special
+    {
+      img: "assets/images/products/shirts/mixed/mixed8.jpg",
+      hoverImg: "assets/images/products/shirts/mixed/mixed1.jpg",
+      title: "Printed Shirt",
+      type: "shirts",
+    },
+    {
+      img: "assets/images/products/pants/jean/jeans10.jpg",
+      hoverImg: "assets/images/products/pants/jean/jeans7.jpg",
+      title: "Stretch Jeans",
+      type: "jeans",
+    },
+  ],
 };
 
 const cardsGrid = document.getElementById("cardsGrid");
 const categoryTabs = document.getElementById("categoryTabs");
-cardData.shirts   = cardData.all.filter(c => c.type === "shirts");
-cardData.trousers = cardData.all.filter(c => c.type === "trousers");
-cardData.tshirts  = cardData.all.filter(c => c.type === "tshirts");
-cardData.jeans    = cardData.all.filter(c => c.type === "jeans");
-cardData.cargo    = cardData.all.filter(c => c.type === "cargo"); 
+cardData.shirts = cardData.all.filter((c) => c.type === "shirts");
+cardData.trousers = cardData.all.filter((c) => c.type === "trousers");
+cardData.tshirts = cardData.all.filter((c) => c.type === "tshirts");
+cardData.jeans = cardData.all.filter((c) => c.type === "jeans");
+cardData.cargo = cardData.all.filter((c) => c.type === "cargo");
 
- // improved showSkeleton + renderCards
+// improved showSkeleton + renderCards
 
 function showSkeleton(count = 6) {
   if (!cardsGrid) return;
@@ -296,7 +376,8 @@ function showSkeleton(count = 6) {
 
   for (let i = 0; i < skeletonCount; i++) {
     const wrapper = document.createElement("div");
-    wrapper.className = "group relative bg-white border border-gray-300 rounded-xl shadow-sm flex flex-col h-full animate-pulse overflow-hidden";
+    wrapper.className =
+      "group relative bg-white border border-gray-300 rounded-xl shadow-sm flex flex-col h-full animate-pulse overflow-hidden";
 
     // Skeleton card markup mirrors final card markup so layout doesn't jump
     wrapper.innerHTML = `
@@ -322,17 +403,18 @@ function renderCards(tab = "all") {
   const arr = cardData[tab] || [];
   // show skeletons while we "load"
   showSkeleton(arr.length || 6);
- 
-  setTimeout(() => { 
+
+  setTimeout(() => {
     if (!arr.length) {
       cardsGrid.innerHTML = `<div class="p-6 text-center text-gray-500">No items found.</div>`;
       return;
     }
 
     // build cards using map -> join
-    cardsGrid.innerHTML = arr.map(item => {
-      const hoverImg = item.hoverImg || item.img; // Fallback to main image if no hover image
-      return `
+    cardsGrid.innerHTML = arr
+      .map((item) => {
+        const hoverImg = item.hoverImg || item.img; // Fallback to main image if no hover image
+        return `
       <div class="group relative bg-white border border-gray-300 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 ease-in-out flex flex-col h-full overflow-hidden hover:-translate-y-1 product-card" data-animate="hover-card">
         <figure class="relative h-60 sm:h-100 flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
           <img src="${item.img}" alt="${item.title}" class="product-img-main object-cover h-full w-full transition-opacity duration-300 group-hover:opacity-0" loading="lazy" />
@@ -347,12 +429,12 @@ function renderCards(tab = "all") {
         </div>
       </div>
     `;
-    }).join('');
+      })
+      .join("");
 
     initHoverAnimations();
   }, 650);
 }
- 
 
 // --------------------------------------------------
 // TAB CLICK HANDLER
@@ -364,7 +446,7 @@ categoryTabs?.addEventListener("click", (e) => {
   // Remove active class from all tabs
   categoryTabs
     .querySelectorAll(".btn")
-    .forEach(btn => btn.classList.remove("btn-active"));
+    .forEach((btn) => btn.classList.remove("btn-active"));
 
   // Set active tab
   target.classList.add("btn-active");
@@ -380,7 +462,7 @@ const animatePageIntro = () => {
   const introEls = document.querySelectorAll(".intro-animate");
   if (!introEls.length) return;
 
-  const prepareElement = el => {
+  const prepareElement = (el) => {
     if (el.dataset.introPrepared) return;
     el.dataset.introPrepared = "true";
     el.style.opacity = "0";
@@ -388,7 +470,7 @@ const animatePageIntro = () => {
     el.style.willChange = "opacity, transform";
   };
 
-  const animateIn = el => {
+  const animateIn = (el) => {
     if (el.dataset.introShown) return;
     el.dataset.introShown = "true";
 
@@ -421,8 +503,8 @@ const animatePageIntro = () => {
   }
 
   const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
+    (entries) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           animateIn(entry.target);
           observer.unobserve(entry.target);
@@ -432,7 +514,7 @@ const animatePageIntro = () => {
     { threshold: 0.2, rootMargin: "0px 0px -5% 0px" }
   );
 
-  introEls.forEach(el => observer.observe(el));
+  introEls.forEach((el) => observer.observe(el));
 };
 
 const initHoverAnimations = () => {
@@ -440,7 +522,7 @@ const initHoverAnimations = () => {
   const hoverEls = document.querySelectorAll("[data-animate='hover-card']");
   if (!hoverEls.length) return;
 
-  hoverEls.forEach(el => {
+  hoverEls.forEach((el) => {
     const animateIn = () => {
       anime.remove(el);
       anime({
@@ -475,7 +557,7 @@ const initHoverAnimations = () => {
 // --------------------------------------------------
 document.addEventListener("DOMContentLoaded", () => {
   initHeroSwiper();
-  initMyHeroSwiper(); 
+  initMyHeroSwiper();
   initReelsSwiper();
   animateFeatured();
   animatePageIntro();
