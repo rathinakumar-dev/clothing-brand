@@ -1,4 +1,4 @@
-// --------------------------------------------------
+ // --------------------------------------------------
 // MOBILE MENU
 // --------------------------------------------------
 const hamburger = document.getElementById("hamburger");
@@ -10,34 +10,56 @@ const bagTrigger = document.getElementById("bagTrigger");
 const loginModal = document.getElementById("loginModal");
 const bagModal = document.getElementById("bagModal");
 
+const setBodyLock = (shouldLock) => {
+  document.body.style.overflow = shouldLock ? "hidden" : "";
+  document.body.style.height   = shouldLock ? "100vh" : "";
+};
+
+const resetTransforms = () => {
+  mobileMenu.classList.remove('-translate-x-full');
+  mobileMenu.style.transform = '';
+  overlay.style.opacity = '';
+};
+
 const toggleMobileMenu = (show = false) => {
   if (!mobileMenu || !overlay) return;
+  resetTransforms();
 
   if (!window.anime) {
-    mobileMenu.classList.toggle("-translate-x-full", !show);
-    overlay.classList.toggle("hidden", !show);
-    overlay.style.opacity = show ? "1" : "";
+    if (show) {
+      overlay.classList.remove("hidden");
+      overlay.style.opacity = "0.5";
+      mobileMenu.classList.remove("-translate-x-full");
+      setBodyLock(true);
+    } else {
+      overlay.classList.add("hidden");
+      overlay.style.opacity = "0";
+      mobileMenu.classList.add("-translate-x-full");
+      setBodyLock(false);
+    }
     return;
   }
 
   anime.remove([mobileMenu, overlay]);
 
   if (show) {
-    overlay.classList.remove("hidden");
+    overlay.classList.remove('hidden');
     overlay.style.opacity = 0;
-    mobileMenu.classList.remove("-translate-x-full");
-    mobileMenu.style.transform = "translateX(-100%)";
+    mobileMenu.classList.remove('-translate-x-full');
+    setBodyLock(true);
 
     anime({
       targets: mobileMenu,
       translateX: ["-100%", "0%"],
       duration: 400,
       easing: "easeOutExpo",
-      complete: () => {
-        mobileMenu.style.transform = "";
+      update: (anim) => {
+        mobileMenu.style.transform = `translateX(${anim.animations[0].currentValue})`;
       },
+      complete: () => {
+        mobileMenu.style.transform = '';
+      }
     });
-
     anime({
       targets: overlay,
       opacity: [0, 0.5],
@@ -50,21 +72,24 @@ const toggleMobileMenu = (show = false) => {
       translateX: ["0%", "-100%"],
       duration: 350,
       easing: "easeInQuad",
-      complete: () => {
-        mobileMenu.classList.add("-translate-x-full");
-        mobileMenu.style.transform = "";
+      update: (anim) => {
+        mobileMenu.style.transform = `translateX(${anim.animations[0].currentValue})`;
       },
+      complete: () => {
+        mobileMenu.classList.add('-translate-x-full');
+        mobileMenu.style.transform = '';
+      }
     });
-
     anime({
       targets: overlay,
-      opacity: [overlay.style.opacity || 0.5, 0],
+      opacity: [parseFloat(overlay.style.opacity || 0.5), 0],
       duration: 250,
       easing: "easeOutQuad",
       complete: () => {
-        overlay.classList.add("hidden");
-        overlay.style.opacity = "";
-      },
+        overlay.classList.add('hidden');
+        overlay.style.opacity = '';
+        setBodyLock(false);
+      }
     });
   }
 };
@@ -74,23 +99,36 @@ closeMenu?.addEventListener("click", () => toggleMobileMenu(false));
 overlay?.addEventListener("click", () => toggleMobileMenu(false));
 mobileMenu?.addEventListener("click", (event) => {
   const closeTrigger = event.target.closest("[data-close-menu]");
-  if (closeTrigger) {
+  if (closeTrigger) toggleMobileMenu(false);
+});
+document.addEventListener("keydown", (event) => {
+  if (
+    event.key === "Escape" &&
+    !mobileMenu?.classList.contains("-translate-x-full")
+  ) {
     toggleMobileMenu(false);
   }
 });
 
-const setBodyLock = (shouldLock) => {
-  document.body.classList.toggle("modal-open", shouldLock);
-};
+// Mobile Menu - Login and Cart triggers (sidebar icons)
+document.getElementById('mobileLogin')?.addEventListener('click', () => {
+  toggleMobileMenu(false);
+  openModal(loginModal);
+});
+document.getElementById('mobileCart')?.addEventListener('click', () => {
+  toggleMobileMenu(false);
+  openModal(bagModal);
+});
 
+// MODAL HANDLING
 const openModal = (modalEl) => {
   if (!modalEl) return;
   modalEl.classList.add("is-visible", "flex");
   modalEl.classList.remove("hidden");
   modalEl.setAttribute("aria-hidden", "false");
-  setBodyLock(true);
+  document.body.style.overflow = "hidden";
+  document.body.style.height = "100vh";
 };
-
 const closeModal = (modalEl) => {
   if (!modalEl) return;
   modalEl.classList.remove("is-visible", "flex");
@@ -98,53 +136,22 @@ const closeModal = (modalEl) => {
   modalEl.setAttribute("aria-hidden", "true");
   const anyOpen = !!document.querySelector(".app-modal.is-visible");
   if (!anyOpen) {
-    setBodyLock(false);
+    document.body.style.overflow = "";
+    document.body.style.height = "";
   }
 };
-
 loginTrigger?.addEventListener("click", () => openModal(loginModal));
 bagTrigger?.addEventListener("click", () => openModal(bagModal));
-
 document.addEventListener("click", (event) => {
   const closeEl = event.target.closest("[data-modal-close]");
-  if (closeEl) {
-    closeModal(closeEl.closest(".app-modal"));
-  }
+  if (closeEl) closeModal(closeEl.closest(".app-modal"));
 });
-
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     document.querySelectorAll(".app-modal.is-visible").forEach(closeModal);
   }
 });
 
-const loginViewButtons = document.querySelectorAll("[data-login-view]");
-const existingFields = document.querySelector("[data-existing-fields]");
-
-const toggleSegmentAppearance = (button, isActive) => {
-  button.classList.toggle("bg-[var(--secondary-color)]", isActive);
-  button.classList.toggle("text-white", isActive);
-  button.classList.toggle("border-transparent", isActive);
-  button.classList.toggle("bg-white", !isActive);
-  button.classList.toggle("text-[var(--secondary-color)]", !isActive);
-  button.classList.toggle("border-black/20", !isActive);
-};
-
-loginViewButtons.forEach((button) => {
-  const isDefault = button.dataset.loginView === "new";
-  toggleSegmentAppearance(button, isDefault);
-});
-
-loginViewButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    loginViewButtons.forEach((btn) => {
-      const isActive = btn === button;
-      toggleSegmentAppearance(btn, isActive);
-    });
-    const view = button.dataset.loginView;
-    existingFields?.toggleAttribute("hidden", view !== "existing");
-  });
-});
 
 // --------------------------------------------------
 // HERO SWIPER (#1 - Main Hero Section)
@@ -231,14 +238,14 @@ const initReelsSwiper = () => {
 const animateFeatured = () => {
   if (!window.anime) return;
   anime({
-    targets: ".featured .category-card",
+    targets: ".featured .category-card .product-card",
     opacity: [0, 1],
     translateY: [40, 0],
     delay: anime.stagger(80),
     duration: 600,
     easing: "easeOutQuad",
   });
-};
+}; 
 
 // --------------------------------------------------
 // PRODUCT TAB SYSTEM

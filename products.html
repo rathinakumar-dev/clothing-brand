@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gaudana — Men's Clothing</title>
+    <meta name="description"
+        content="Gaudana — men's clothing brand. Explore shirts, jeans, cotton pants, formal wear, and discover other top men’s clothing brand websites." />
+    <meta name="keywords" content="men's clothing, shirts, jeans, cotton pants, formal wear, brands" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Gaudana — Men's Clothing" />
+    <meta property="og:description"
+        content="Shop curated men's shirts, jeans, cotton and formal wear. Explore featured brands and style inspiration." />
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Custom CSS  -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/logos/logo-1.png" />
+    <!-- Daisy Ui  -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- Anime.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+    <!-- Fontswaome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-+1zGrjZAxkYjUKPTySGTsNM/M0SKdYHv2IiVt/0Sj+Y4kgf48toLrYz9TWJhSEvEeiRKT9H5c3xQgdyvY5q9Aw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body class="min-h-screen tracking-wide">
+
+    <!-- Header + Navbar -->
+    <header class="bg-white intro-animate">
+        <!-- Header Bar -->
+        <div class="grid grid-cols-3 items-center border-b-[10px] border-b-[#0e482e] px-4 md:px-10 py-3 mb-0 sm:mb-2">
+            <!-- Left: Hamburger (mobile only) -->
+            <div class="flex justify-start">
+                <button id="hamburger" class="text-[#0e482e] text-2xl focus:outline-none md:hidden"
+                    aria-label="Open menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+            <!-- Center: Logo -->
+            <div class="flex justify-center">
+                <a href="index.html">
+                    <img src="assets/images/logos/new-logo.png" alt="Logo" class="w-32 md:w-48 cursor-pointer" />
+                </a>
+            </div>
+            <!-- Right: Login & Bag (desktop) -->
+            <div class="flex justify-end gap-2 md:gap-3">
+                <button id="loginTrigger"
+                    class="cursor-pointer px-1.5 sm:px-3 py-1.5 sm:py-2 text-[#0e482e] font-semibold rounded-md text-sm md:text-base">
+                    <span class="text-sm sm:text-base">B2B Login</span>
+                    <span class="hidden sm:inline">
+                        <i class="fa-solid fa-user"></i>
+                    </span>
+                </button>
+                <button id="bagTrigger"
+                    class="cursor-pointer px-1.5 sm:px-3 py-1.5 sm:py-2 rounded-md inline-flex items-center">
+                    <i class="fa-solid fa-bag-shopping text-[#0e482e]"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex justify-center bg-[var(--primary-color)]">
+            <div class="dropdown dropdown-hover">
+                <div tabindex="0" role="button"
+                    class="text-[#0e482e] font-semibold px-4 py-2 bg-[var(--primary-color)] hover:bg-[#0e482e] hover:text-white transition-colors rounded-md">
+                    Categories <i class="fa-solid fa-angle-down ml-2"></i>
+                </div>
+                <ul tabindex="-1" class="dropdown-content menu p-2 rounded-md w-37 z-10 bg-gray-100 shadow-2xl mt-0">
+                    <li><a
+                            class="hover:bg-[#0e482e] hover:text-white text-[#0e482e] font-semibold transition-colors duration-200 rounded-md">All</a>
+                    </li>
+                    <li><a
+                            class="hover:bg-[#0e482e] hover:text-white text-[#0e482e] font-semibold transition-colors duration-200 rounded-md">Trousers</a>
+                    </li>
+                    <li><a
+                            class="hover:bg-[#0e482e] hover:text-white text-[#0e482e] font-semibold transition-colors duration-200 rounded-md">T-Shirts</a>
+                    </li>
+                    <li><a
+                            class="hover:bg-[#0e482e] hover:text-white text-[#0e482e] font-semibold transition-colors duration-200 rounded-md">Jeans</a>
+                    </li>
+                    <li><a
+                            class="hover:bg-[#0e482e] hover:text-white text-[#0e482e] font-semibold transition-colors duration-200 rounded-md">Cargo</a>
+                    </li>
+                </ul>
+            </div>
+            <a href="javascript:void(0)"
+                class="text-[#0e482e] font-semibold px-4 py-2 hover:bg-[#0e482e] hover:text-white transition-colors rounded-md">New
+                Arrival</a>
+            <a href="javascript:void(0)"
+                class="text-[#0e482e] font-semibold px-4 py-2 hover:bg-[#0e482e] hover:text-white transition-colors rounded-md">Bulk
+                Order</a>
+        </nav>
+
+        <!-- Mobile Menu Overlay  -->
+        <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-[998] transition-opacity duration-300">
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <nav id="mobileMenu"
+            class="fixed top-0 left-0 h-full w-64 bg-[radial-gradient(circle_at_top_right,_#fdf7ee,_#efe1ce)] transform -translate-x-full transition-transform duration-300 ease-in-out z-[999] md:hidden shadow-2xl overflow-y-auto">
+            <div class="flex items-center justify-between p-4 border-b border-[rgba(14,72,46,0.40)]">
+                <span class="text-[var(--secondary-color)] font-bold text-lg">
+                    <a href="index.html">
+                        <img src="assets/images/logos/new-logo.png" alt="logo" class="w-36 h-14 object-cover">
+                    </a>
+                </span>
+                <button id="closeMenu"
+                    class="text-[var(--secondary-color)] text-2xl hover:opacity-70 transition-opacity"
+                    aria-label="Close menu">
+                    <i class="fa-solid fa-times"></i>
+                </button>
+            </div>
+            <div class="p-3 space-y-1">
+                <!-- DaisyUI collapse for Categories -->
+                <div class="collapse collapse-plus bg-transparent border-0">
+                    <input type="checkbox" class="peer" />
+                    <div
+                        class="collapse-title text-[var(--secondary-color)] font-semibold px-3 py-3 min-h-0 peer-checked:bg-[rgba(14,72,46,0.05)] rounded-md transition-colors">
+                        Categories
+                    </div>
+                    <div class="collapse-content px-0 pb-0">
+                        <ul class="menu p-0">
+                            <li><a href="#" data-close-menu
+                                    class="text-[var(--secondary-color)] hover:bg-[#0e482e] hover:text-white transition-colors rounded-md">All</a>
+                            </li>
+                            <li><a href="#" data-close-menu
+                                    class="text-[var(--secondary-color)] hover:bg-[#0e482e] hover:text-white transition-colors rounded-md">Trousers</a>
+                            </li>
+                            <li><a href="#" data-close-menu
+                                    class="text-[var(--secondary-color)] hover:bg-[#0e482e] hover:text-white transition-colors rounded-md">Jeans</a>
+                            </li>
+                            <li><a href="#" data-close-menu
+                                    class="text-[var(--secondary-color)] hover:bg-[#0e482e] hover:text-white transition-colors rounded-md">T-Shirts</a>
+                            </li>
+                            <li><a href="#" data-close-menu
+                                    class="text-[var(--secondary-color)] hover:bg-[#0e482e] hover:text-white transition-colors rounded-md">Cargo</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Other items -->
+                <a href="#" data-close-menu
+                    class="block text-[var(--secondary-color)] font-semibold px-3 py-3 hover:bg-[rgba(14,72,46,0.05)] rounded-md transition-colors">
+                    New Arrival
+                </a>
+                <a href="#" data-close-menu
+                    class="block text-[var(--secondary-color)] font-semibold px-3 py-3 hover:bg-[rgba(14,72,46,0.05)] rounded-md transition-colors">
+                    Bulk Order
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="bg-[var(--sand)]">
+        <!-- Infinite text scroll section -->
+        <section class="w-full bg-[var(--ink)] py-4 intro-animate">
+            <div class="mx-auto max-w-7xl px-4">
+                <div class="overflow-hidden">
+                    <div
+                        class="flex infinite-scroll gap-20 whitespace-nowrap text-2xl md:text-3xl font-extrabold uppercase text-white/85">
+                        <span>Sales On Live!</span>
+                        <span>Sales On Live!</span>
+                        <span>Sales On Live!</span>
+                        <span>Sales On Live!</span>
+                        <span>Sales On Live!</span>
+                        <span>Sales On Live!</span>
+                        <span>Sales On Live!</span>
+                        <span>Sales On Live!</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products+fillter  -->
+        <section class=" intro-animate !w-full">
+            <!-- Daisy drawer -->
+            <div class="drawer lg:drawer-open">
+                <input id="filter-drawer" type="checkbox" class="drawer-toggle" />
+
+                <!-- CONTENT AREA -->
+                <div class="drawer-content flex flex-col p-3">
+                    <!-- mobile trigger -->
+                    <label for="filter-drawer" class="btn w-26 bg-[var(--primary-color)] drawer-button lg:hidden mb-4">
+                        ☰ Filters
+                    </label>
+
+                    <!-- PRODUCT GRID -->
+                    <div id="cardsGrid"
+                        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-8 py-2 sm:py-5">
+                        <!-- cards injected via JS -->
+                    </div>
+                </div>
+
+                <!-- SIDEBAR -->
+                <div class="drawer-side">
+                    <label for="filter-drawer" class="drawer-overlay lg:hidden""></label>
+                    <ul class=" menu bg-white border-r border-r-gray-400 text-[var(--ink)] min-h-full w-60 p-4
+                        space-y-3 shadow-xl">
+                        <li class="text-md font-bold mb-2 pl-2 text-[var(--secondary-color)]">Filters</li>
+
+                        <li>
+                            <details>
+                                <summary class="font-semibold">Category</summary>
+                                <ul class="b-filter">
+                                    <li><a>Shirts</a></li>
+                                    <li><a>Overshirts</a></li>
+                                </ul>
+
+                            </details>
+                        </li>
+                        <li>
+                            <details>
+                                <summary class="font-semibold">Size</summary>
+                                <ul class="grid grid-cols-2 gap-1.5 b-filter">
+                                    <li class="border border-gray-500"><a>S</a></li>
+                                    <li class="border border-gray-500"><a>M</a></li>
+                                    <li class="border border-gray-500"><a>L</a></li>
+                                    <li class="border border-gray-500"><a>XL</a></li>
+                                </ul>
+                            </details>
+                        </li>
+                        <li>
+                            <details>
+                                <summary class="font-semibold">Color</summary>
+                                <ul class="b-filter">
+                                    <li><a>White</a></li>
+                                    <li><a>Black</a></li>
+                                    <li><a>Grey</a></li>
+                                    <li><a>Blue</a></li>
+                                </ul>
+                            </details>
+                        </li>
+                        <li>
+                            <details>
+                                <summary class="font-semibold">Pattern</summary>
+                                <ul class="b-filter">
+                                    <li><a>Plain</a></li>
+                                    <li><a>Prints</a></li>
+                                </ul>
+                            </details>
+                        </li>
+                        <li>
+                            <details>
+                                <summary class="font-semibold">Fit</summary>
+                                <ul class="b-filter">
+                                    <li><a>Relaxed</a></li>
+                                    <li><a>Regular</a></li>
+                                </ul>
+                            </details>
+                        </li>
+                        <li>
+                            <details>
+                                <summary class="font-semibold">Material</summary>
+                                <ul class="b-filter">
+                                    <li><a>Linen</a></li>
+                                    <li><a>Cotton</a></li>
+                                </ul>
+                            </details>
+                        </li>
+                        <li>
+                            <details>
+                                <summary class="font-semibold">Collar</summary>
+                                <ul class="b-filter">
+                                    <li><a>Classic</a></li>
+                                    <li><a>Spread</a></li>
+                                </ul>
+                            </details>
+                        </li>
+                        <li>
+                            <details>
+                                <summary class="font-semibold">Sleeves</summary>
+                                <ul class="b-filter">
+                                    <li><a>Half Sleeve</a></li>
+                                    <li><a>Full Sleeve</a></li>
+                                </ul>
+                            </details>
+                        </li>
+                        </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Bag / Cart Modal -->
+    <div id="bagModal" class="app-modal fixed inset-0 hidden items-start justify-center p-6 sm:p-8 z-[1000]"
+        aria-hidden="true" aria-labelledby="bagModalTitle" role="dialog">
+        <div class="absolute inset-0 bg-black/70 backdrop-blur-md" data-modal-close></div>
+        <div class="relative z-[1] w-full max-w-[520px] rounded-[32px] bg-white p-6 sm:p-8 shadow-2xl"
+            style="animation: modal-pop 0.3s ease forwards;">
+            <button
+                class="absolute top-4 right-4 w-9 h-9 rounded-full grid place-items-center text-[var(--secondary-color)] bg-black/5"
+                aria-label="Close cart modal" data-modal-close>
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="mb-6">
+                <p
+                    class="inline-flex items-center uppercase tracking-[0.2em] text-[0.7rem] rounded-full px-3 py-1 mb-3 border border-white/30 text-[var(--secondary-color)]">
+                    Your Cart
+                </p>
+                <h3 id="bagModalTitle" class="text-[1.8rem] mb-2">Ready to place a bulk order?</h3>
+            </div>
+            <div class="flex flex-col gap-4 mb-6">
+                <div class="flex flex-wrap sm:flex-nowrap items-center gap-4 p-3 border border-black/10 rounded-2xl">
+                    <img src="assets/images/products/shirts/dark-blue/dark-blue4.jpeg" alt="Dark blue shirt"
+                        class="w-16 h-16 object-cover rounded-xl" />
+                    <div>
+                        <p class="font-semibold">Dark Blue Shirt</p>
+                        <p class="text-sm text-black/60">Size run: 38-44 · MOQ 20</p>
+                    </div>
+                    <div
+                        class="inline-flex items-center gap-2 border border-black/10 rounded-full px-2.5 py-1 sm:ml-auto">
+                        <button type="button" class="w-7 h-7 rounded-full text-[var(--secondary-color)]"
+                            data-qty="minus" aria-label="Decrease quantity">
+                            <i class="fa-solid fa-minus"></i>
+                        </button>
+                        <span>40</span>
+                        <button type="button" class="w-7 h-7 rounded-full text-[var(--secondary-color)]" data-qty="plus"
+                            aria-label="Increase quantity">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="flex flex-wrap sm:flex-nowrap items-center gap-4 p-3 border border-black/10 rounded-2xl">
+                    <img src="assets/images/products/pants/jean/jeans7.jpg" alt="Utility denim"
+                        class="w-16 h-16 object-cover rounded-xl" />
+                    <div>
+                        <p class="font-semibold">Utility Denim</p>
+                        <p class="text-sm text-black/60">Indigo · MOQ 24</p>
+                    </div>
+                    <div
+                        class="inline-flex items-center gap-2 border border-black/10 rounded-full px-2.5 py-1 sm:ml-auto">
+                        <button type="button" class="w-7 h-7 rounded-full text-[var(--secondary-color)]"
+                            data-qty="minus" aria-label="Decrease quantity">
+                            <i class="fa-solid fa-minus"></i>
+                        </button>
+                        <span>24</span>
+                        <button type="button" class="w-7 h-7 rounded-full text-[var(--secondary-color)]" data-qty="plus"
+                            aria-label="Increase quantity">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-wrap gap-3">
+                <button
+                    class="flex-1 basis-28 cursor-pointer rounded-full px-4 py-3 font-semibold border border-transparent bg-[var(--secondary-color)] text-white"
+                    type="button">Send WhatsApp Enquiry</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <!-- Fontswaome CDN Script -->
+    <script src="https://kit.fontawesome.com/d96a3e64f1.js" crossorigin="anonymous"></script>
+    <!-- Flowbite Script -->
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+</body>
+
+</html>

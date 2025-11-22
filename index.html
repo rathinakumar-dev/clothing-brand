@@ -32,7 +32,7 @@
 
 <body class="min-h-screen tracking-wide">
 
-    <!-- Header+Navbar  -->
+    <!-- Header + Navbar -->
     <header class="bg-white intro-animate">
         <!-- Header Bar -->
         <div class="grid grid-cols-3 items-center border-b-[10px] border-b-[#0e482e] px-4 md:px-10 py-3 mb-0 sm:mb-2">
@@ -47,12 +47,14 @@
             <div class="flex justify-center">
                 <img src="assets/images/logos/new-logo.png" alt="Logo" class="w-32 md:w-48 cursor-pointer" />
             </div>
-            <!-- Right: Login & Bag -->
+            <!-- Right: Login & Bag (desktop) -->
             <div class="flex justify-end gap-2 md:gap-3">
                 <button id="loginTrigger"
                     class="cursor-pointer px-1.5 sm:px-3 py-1.5 sm:py-2 text-[#0e482e] font-semibold rounded-md text-sm md:text-base">
                     <span class="text-sm sm:text-base">B2B Login</span>
-                    <i class="fa-solid fa-user"></i>
+                    <span class="hidden sm:inline">
+                        <i class="fa-solid fa-user"></i>
+                    </span>
                 </button>
                 <button id="bagTrigger"
                     class="cursor-pointer px-1.5 sm:px-3 py-1.5 sm:py-2 rounded-md inline-flex items-center">
@@ -69,25 +71,20 @@
                     Categories <i class="fa-solid fa-angle-down ml-2"></i>
                 </div>
                 <ul tabindex="-1" class="dropdown-content menu p-2 rounded-md w-37 z-10 bg-gray-100 shadow-2xl mt-0">
-                    <li>
-                        <a
-                            class="hover:bg-[#0e482e] hover:text-white text-[#0e482e] font-semibold !focus:bg-[var(--secondary-color)] active:bg-[var(--secondary-color)] active:text-white transition-colors duration-200 rounded-md">All</a>
+                    <li><a
+                            class="hover:bg-[#0e482e] hover:text-white text-[#0e482e] font-semibold transition-colors duration-200 rounded-md">All</a>
                     </li>
-                    <li>
-                        <a
-                            class="hover:bg-[#0e482e] hover:text-white text-[#0e482e] font-semibold !focus:bg-[var(--secondary-color)] active:bg-[var(--secondary-color)] active:text-white transition-colors duration-200 rounded-md">Trousers</a>
+                    <li><a
+                            class="hover:bg-[#0e482e] hover:text-white text-[#0e482e] font-semibold transition-colors duration-200 rounded-md">Trousers</a>
                     </li>
-                    <li>
-                        <a
-                            class="hover:bg-[#0e482e] hover:text-white text-[#0e482e] font-semibold !focus:bg-[var(--secondary-color)] active:bg-[var(--secondary-color)] active:text-white transition-colors duration-200 rounded-md">T-Shirts</a>
+                    <li><a
+                            class="hover:bg-[#0e482e] hover:text-white text-[#0e482e] font-semibold transition-colors duration-200 rounded-md">T-Shirts</a>
                     </li>
-                    <li>
-                        <a
-                            class="hover:bg-[#0e482e] hover:text-white text-[#0e482e] font-semibold !focus:bg-[var(--secondary-color)] active:bg-[var(--secondary-color)] active:text-white transition-colors duration-200 rounded-md">Jeans</a>
+                    <li><a
+                            class="hover:bg-[#0e482e] hover:text-white text-[#0e482e] font-semibold transition-colors duration-200 rounded-md">Jeans</a>
                     </li>
-                    <li>
-                        <a
-                            class="hover:bg-[#0e482e] hover:text-white text-[#0e482e] font-semibold !focus:bg-[var(--secondary-color)] active:bg-[var(--secondary-color)] active:text-white transition-colors duration-200 rounded-md">Cargo</a>
+                    <li><a
+                            class="hover:bg-[#0e482e] hover:text-white text-[#0e482e] font-semibold transition-colors duration-200 rounded-md">Cargo</a>
                     </li>
                 </ul>
             </div>
@@ -99,108 +96,101 @@
                 Order</a>
         </nav>
 
+        <!-- Mobile Menu Overlay  -->
+        <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-[998] transition-opacity duration-300">
+        </div>
+
         <!-- Mobile Drawer Navigation -->
         <nav id="mobileMenu"
-            class="fixed top-0 left-0 h-full w-64 bg-[radial-gradient(circle_at_top_right,_#fdf7ee,_#efe1ce)] transform -translate-x-full transition-transform duration-300 ease-in-out z-50 lg:hidden">
-            <div class="flex items-center justify-between p-4 border-b border-[rgba(255,255,255,0.08)]">
-                <button id="closeMenu" class="btn btn-ghost" aria-label="Close menu">
-                    <i class="fa-solid fa-times text-[var(--secondary-color)]"></i>
+            class="fixed top-0 left-0 h-full w-64 bg-[radial-gradient(circle_at_top_right,_#fdf7ee,_#efe1ce)] transform -translate-x-full transition-transform duration-300 ease-in-out z-[999] md:hidden shadow-2xl overflow-y-auto">
+            <div class="flex items-center justify-between p-4 border-b border-[rgba(14,72,46,0.40)]">
+                <span class="text-[var(--secondary-color)] font-bold text-lg">
+                    <img src="assets/images/logos/new-logo.png" alt="logo" class="w-36 h-14 object-cover">
+                </span>
+                <button id="closeMenu"
+                    class="text-[var(--secondary-color)] text-2xl hover:opacity-70 transition-opacity"
+                    aria-label="Close menu">
+                    <i class="fa-solid fa-times"></i>
                 </button>
             </div>
-
             <div class="p-3 space-y-1">
                 <!-- DaisyUI collapse for Categories -->
-                <div tabindex="0"
-                    class="collapse collapse-plus bg-transparent border border-transparent &>.collapse-title:after ">
-                    <input type="checkbox" class="hidden" name="category" />
-                    <div class="collapse-title flex items-center justify-between p-3">
-                        <span class="text-[var(--secondary-color)] font-semibold">Categories</span>
-                        <!-- icon comes from collapse-plus -->
+                <div class="collapse collapse-plus bg-transparent border-0">
+                    <input type="checkbox" class="peer" />
+                    <div
+                        class="collapse-title text-[var(--secondary-color)] font-semibold px-3 py-3 min-h-0 peer-checked:bg-[rgba(14,72,46,0.05)] rounded-md transition-colors">
+                        Categories
                     </div>
-                    <div class="collapse-content p-0">
-                        <ul class="menu p-2">
-                            <li>
-                                <a href="#" data-close-menu
-                                    class="text-[var(--secondary-color)] active:bg-[var(--secondary-color)] active:text-white">All</a>
+                    <div class="collapse-content px-0 pb-0">
+                        <ul class="menu p-0">
+                            <li><a href="#" data-close-menu
+                                    class="text-[var(--secondary-color)] hover:bg-[#0e482e] hover:text-white transition-colors rounded-md">All</a>
                             </li>
-                            <li>
-                                <a href="#" data-close-menu
-                                    class="text-[var(--secondary-color)] active:bg-[var(--secondary-color)] active:text-white">Trousers</a>
+                            <li><a href="#" data-close-menu
+                                    class="text-[var(--secondary-color)] hover:bg-[#0e482e] hover:text-white transition-colors rounded-md">Trousers</a>
                             </li>
-                            <li>
-                                <a href="#" data-close-menu
-                                    class="text-[var(--secondary-color)] active:bg-[var(--secondary-color)] active:text-white">Jeans</a>
+                            <li><a href="#" data-close-menu
+                                    class="text-[var(--secondary-color)] hover:bg-[#0e482e] hover:text-white transition-colors rounded-md">Jeans</a>
                             </li>
-                            <li>
-                                <a href="#" data-close-menu
-                                    class="text-[var(--secondary-color)] active:bg-[var(--secondary-color)] active:text-white">T-Shirts</a>
+                            <li><a href="#" data-close-menu
+                                    class="text-[var(--secondary-color)] hover:bg-[#0e482e] hover:text-white transition-colors rounded-md">T-Shirts</a>
                             </li>
-                            <li>
-                                <a href="#" data-close-menu
-                                    class="text-[var(--secondary-color)] active:bg-[var(--secondary-color)] active:text-white">Cargo</a>
+                            <li><a href="#" data-close-menu
+                                    class="text-[var(--secondary-color)] hover:bg-[#0e482e] hover:text-white transition-colors rounded-md">Cargo</a>
                             </li>
                         </ul>
                     </div>
                 </div>
-
                 <!-- Other items -->
                 <a href="#" data-close-menu
-                    class="block text-[var(--secondary-color)] font-semibold px-3 py-3 rounded transition-colors">
+                    class="block text-[var(--secondary-color)] font-semibold px-3 py-3 hover:bg-[rgba(14,72,46,0.05)] rounded-md transition-colors">
                     New Arrival
                 </a>
-
                 <a href="#" data-close-menu
-                    class="block text-[var(--secondary-color)] font-semibold px-3 py-3 rounded transition-colors">
+                    class="block text-[var(--secondary-color)] font-semibold px-3 py-3 hover:bg-[rgba(14,72,46,0.05)] rounded-md transition-colors">
                     Bulk Order
                 </a>
             </div>
         </nav>
-
-        <!-- Mobile Menu Overlay -->
-        <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40"></div>
     </header>
 
     <main>
         <!-- HeroSection -->
-        <section class="swiper myHeroSwiper w-full h-[240px] sm:h-[500px] intro-animate">
+        <section class="swiper myHeroSwiper w-full h-[318px] sm:h-[500px] intro-animate">
             <div class="swiper-wrapper">
 
                 <!-- Slide 1 -->
                 <div class="swiper-slide hero-slide">
-                    <img src="assets/images/products/hero/hero-1.jpg"
-                        class="w-full h-60 sm:h-full object-contain sm:object-cover" />
+                    <img src="assets/images/products/hero/hero-1.jpg" class="w-full h-80 sm:h-full object-cover" />
                 </div>
 
                 <!-- Slide 2 -->
                 <div class="swiper-slide hero-slide">
-                    <img src="assets/images/products/hero/hero-2.jpg"
-                        class="w-full h-60 sm:h-full object-contain sm:object-cover" />
+                    <img src="assets/images/products/hero/hero-2.jpg" class="w-full h-80 sm:h-full object-cover" />
                 </div>
 
                 <!-- Slide 3 -->
                 <div class="swiper-slide hero-slide">
-                    <img src="assets/images/products/hero/hero-3.jpg"
-                        class="w-full h-60 sm:h-full object-contain sm:object-cover" />
+                    <img src="assets/images/products/hero/hero-3.jpg" class="w-full h-80 sm:h-full object-cover" />
                 </div>
 
                 <!-- Slide 4 -->
                 <div class="swiper-slide hero-slide">
-                    <img src="assets/images/products/hero/hero-4.jpg"
-                        class="w-full h-60 sm:h-full object-contain sm:object-cover" />
+                    <img src="assets/images/products/hero/hero-4.jpg" class="w-full h-80 sm:h-full object-cover" />
                 </div>
 
                 <!-- Slide 5 -->
                 <div class="swiper-slide hero-slide">
-                    <img src="assets/images/products/hero/hero-5.jpg"
-                        class="w-full h-60 sm:h-full object-contain sm:object-cover" />
+                    <img src="assets/images/products/hero/hero-5.jpg" class="w-full h-80 sm:h-full object-cover" />
                 </div>
 
             </div>
         </section>
 
         <!-- Categories Section Cards -->
-        <section class="w-full px-2 py-4 sm:py-6 md:py-8 intro-animate">
-            <h2 class="text-lg sm:text-2xl md:text-3xl font-bold text-center mb-4 sm:mb-6 md:mb-10 tracking-widest">CATEGORIES
+        <section class="w-full px-4 sm:px-6  py-4 sm:py-6 md:py-8 intro-animate">
+            <h2 class="text-lg sm:text-2xl md:text-3xl font-bold text-center mb-4 sm:mb-6 md:mb-10 tracking-widest">
+                CATEGORIES
             </h2>
 
             <div class="grid grid-cols-3 md:grid-cols-6 gap-2 md:gap-4 max-w-7xl mx-auto  ">
@@ -381,24 +371,34 @@
         </section>
 
         <!-- About Section  -->
-        <section class="section-shell about-shell intro-animate" style="padding: 20px 10px !important;" id="about">
-            <div class="about-visual">
-                <img src="assets/images/products/hero/ceo.jpg" alt="Tailoring studio"
-                    loading="lazy" class="object-cover" />
+        <section id="about" class="w-full bg-white shadow-xl rounded-3xl p-4 sm:p-6 
+               grid grid-cols-1 md:grid-cols-[1fr_1.2fr] gap-6 sm:gap-10 
+               max-w-6xl mx-auto items-start intro-animate section-shell">
+
+            <!-- Image -->
+            <div class="overflow-hidden rounded-3xl h-full">
+                <img src="assets/images/products/hero/ceo.jpg" alt="Tailoring studio" loading="lazy"
+                    class="w-full h-[450px] sm:h-[500px] object-cover rounded-3xl" />
             </div>
-            <div class="about-copy">
+
+            <!-- Content -->
+            <div class="flex flex-col gap-4">
+
                 <p class="text-xs uppercase font-semibold tracking-[0.35em] text-[var(--secondary-color)]">
                     About Gaudana
                 </p>
+
                 <h2 class="text-3xl font-semibold text-gray-900 leading-tight">
                     Family-run ateliers crafting modern Indian menswear.
                 </h2>
+
                 <p class="text-gray-600">
                     We design, dye, and finish under one roof in Surat. 100% traceable
                     supply chain, no middlemen, and collections informed by data from
                     180+ partner stores.
                 </p>
-                <ul class="text-gray-700">
+
+                <ul class="grid gap-2 text-gray-700 mt-2">
                     <li class="flex items-center gap-2">
                         <i class="fa-solid fa-check text-[var(--secondary-color)]"></i>
                         Bespoke B2B pricing in 24 hours.
@@ -412,33 +412,45 @@
                         Dedicated merch & QA teams.
                     </li>
                 </ul>
-                <div class="about-stats">
-                    <div class="about-stat">
-                        <span>Since</span>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-2">
+                    <div class="p-4 rounded-xl bg-[rgba(13,72,46,0.2)]">
+                        <span class="block text-[0.75rem] uppercase tracking-widest text-gray-700">
+                            Since
+                        </span>
                         <strong class="text-2xl text-[var(--secondary-color)]">1998</strong>
                     </div>
-                    <div class="about-stat">
-                        <span>Orders</span>
+
+                    <div class="p-4 rounded-xl bg-[rgba(13,72,46,0.2)]">
+                        <span class="block text-[0.75rem] uppercase tracking-widest text-gray-700">
+                            Orders
+                        </span>
                         <strong class="text-2xl text-[var(--secondary-color)]">5k+/mo</strong>
                     </div>
-                    <div class="about-stat">
-                        <span>Return rate</span>
+
+                    <div class="p-4 rounded-xl bg-[rgba(13,72,46,0.2)]">
+                        <span class="block text-[0.75rem] uppercase tracking-widest text-gray-700">
+                            Return rate
+                        </span>
                         <strong class="text-2xl text-[var(--secondary-color)]">&lt; 2%</strong>
                     </div>
                 </div>
-                <div class="flex flex-wrap gap-3 mt-6">
+
+                <div class="flex flex-wrap gap-3 mt-4">
                     <button
-                        class="px-6 py-3 rounded-full bg-[var(--secondary-color)] text-white font-semibold shadow-lg hover:opacity-90 transition">
+                        class="px-6 py-3 rounded-full bg-[var(--secondary-color)] text-white font-semibold shadow-md hover:opacity-90 transition">
                         Meet the team
                     </button>
+
                     <button
                         class="px-6 py-3 rounded-full border border-gray-400 font-semibold text-gray-800 hover:bg-[var(--primary-color)] hover:text-black transition">
                         Book a walkthrough
                     </button>
                 </div>
-            </div>
-        </section>
 
+            </div> 
+        </section>
+ 
         <!-- Reels Video Section  -->
         <section class="section-shell reels-shell intro-animate" id="shop-by-reel">
             <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
@@ -557,11 +569,13 @@
                     <a href="javascript:void(0)" class="footer-link">About Us</a><br>
                     <a href="javascript:void(0)" class="footer-link">Products</a><br>
                     <a href="javascript:void(0)" class="footer-link">Contact Us</a><br>
+                    <a href="javascript:void(0)" class="footer-link">Blog Link</a>
                 </div>
                 <div>
                     <h4>Contact</h4>
                     <a href="https://maps.app.goo.gl/QzydTBBdNY8HCoRJ6" class="footer-link"><i
-                            class="fa-solid fa-location-crosshairs mb-6"></i>somu chetty Street, 6th lane royapuram, Chennai.</a>
+                            class="fa-solid fa-location-crosshairs mb-6"></i>somu chetty Street, 6th lane royapuram,
+                        Chennai.</a>
                     <a href="tel:+91 9840628613" class="footer-link">
                         <i class="fa-solid fa-phone"></i> +91 9840628613
                     </a>
@@ -605,7 +619,6 @@
         </div>
     </section>
 
-   
     <!-- Bag / Cart Modal -->
     <div id="bagModal" class="app-modal fixed inset-0 hidden items-start justify-center p-6 sm:p-8 z-[1000]"
         aria-hidden="true" aria-labelledby="bagModalTitle" role="dialog">
@@ -622,7 +635,7 @@
                     class="inline-flex items-center uppercase tracking-[0.2em] text-[0.7rem] rounded-full px-3 py-1 mb-3 border border-white/30 text-[var(--secondary-color)]">
                     Your Cart
                 </p>
-                <h3 id="bagModalTitle" class="text-[1.8rem] mb-2">Ready to place a bulk order?</h3> 
+                <h3 id="bagModalTitle" class="text-[1.8rem] mb-2">Ready to place a bulk order?</h3>
             </div>
             <div class="flex flex-col gap-4 mb-6">
                 <div class="flex flex-wrap sm:flex-nowrap items-center gap-4 p-3 border border-black/10 rounded-2xl">
@@ -665,17 +678,15 @@
                         </button>
                     </div>
                 </div>
-            </div> 
-            <div class="flex flex-wrap gap-3"> 
+            </div>
+            <div class="flex flex-wrap gap-3">
                 <button
                     class="flex-1 basis-28 cursor-pointer rounded-full px-4 py-3 font-semibold border border-transparent bg-[var(--secondary-color)] text-white"
                     type="button">Send WhatsApp Enquiry</button>
             </div>
         </div>
     </div>
-
-    <!-- WOW.js Script -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+ 
     <!-- Custom Script -->
     <script src="script.js"></script>
     <!-- Swiper JS -->
